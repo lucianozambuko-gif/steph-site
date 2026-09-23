@@ -19,14 +19,16 @@ python -m http.server 8000
 
 The site is static, so it runs on GitHub Pages (Settings → Pages → deploy from the `main` branch, root folder), Netlify or Vercel.
 
-## Placeholder contact details — replace before real use
+## Contact details
 
-The contact section uses generic details for the client preview. Find and replace them throughout `index.html`:
+| Detail | Value | Where it appears |
+| --- | --- | --- |
+| Email | `stephaineosaro@gmail.com` | Contact list, footer, enquiry form (`TO` in the script) |
+| Phone / WhatsApp | `+234 816 110 7337` (`2348161107337` in links) | Contact list, footer, "Book a discovery call" |
+| Instagram / LinkedIn | `stephanieosaro`: **placeholder, replace with real handles** | Contact list, footer |
 
-| Placeholder | Where it appears |
-| --- | --- |
-| `hello@stephanieosaro.com` | Contact list, footer, enquiry form (`TO` in the script) |
-| `2348000000000` / `+234 800 000 0000` | WhatsApp links and phone number |
-| `stephanieosaro` | Instagram and LinkedIn links |
+## Palette
+
+Burgundy `#4E0F16`, nude/off-white `#EFE6DC`, blush `#EBD6CF` / `#E2C0BD`, rose accent `#8C3341`. All defined as CSS variables at the top of `index.html`.
 
 The enquiry form has no backend: it opens the visitor's email app with the message filled in.
