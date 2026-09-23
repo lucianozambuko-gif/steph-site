@@ -6,6 +6,13 @@
 <title>Stephanie Osaro</title>
 <link rel="icon" href="assets/logo.jpg">
 <meta name="description" content="Stephanie Osaro — program manager, community builder, content strategist and writer based in Abuja.">
+<meta name="theme-color" content="#16110C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stephanie Osaro — Program Manager, Content Strategist & Writer">
+<meta property="og:description" content="Good programs change lives. Good stories move people. Programs, communities and content from Abuja.">
+<meta property="og:url" content="https://lucianozambuko-gif.github.io/steph-site/">
+<meta property="og:image" content="https://lucianozambuko-gif.github.io/steph-site/assets/logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Hanken+Grotesk:wght@400;500;600&family=Pinyon+Script&display=swap">
@@ -348,8 +355,40 @@
   .lines { display: grid; gap: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent); max-width: 520px; }
   .lines div { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 22%, transparent); }
   .lines dt { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; opacity: .7; font-weight: 600; align-self: center; }
-  .lines dd { margin: 0; font-family: var(--display); font-size: 19px; user-select: all; }
-  .lines dd.todo { font-family: var(--body); font-size: 15px; opacity: .6; border: 1px dashed currentColor; border-radius: 3px; padding: 2px 10px; user-select: auto; }
+  .lines dd { margin: 0; font-family: var(--display); font-size: 19px; }
+  .lines dd a { text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); }
+  .lines dd a:hover { color: var(--gold); }
+
+  .enquiry {
+    grid-column: 1 / -1; margin-top: clamp(24px, 4vw, 48px);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px;
+    background: color-mix(in srgb, var(--paper) 6%, transparent);
+    border: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+    border-radius: 4px; padding: clamp(22px, 4vw, 44px);
+  }
+  .enquiry-head { grid-column: 1 / -1; display: grid; gap: 10px; margin-bottom: 6px; }
+  .enquiry-head h3 { color: var(--paper); }
+  .field { display: grid; gap: 7px; min-width: 0; }
+  .field.wide, .form-foot.wide { grid-column: 1 / -1; }
+  .field label { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; opacity: .75; }
+  .field label span { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .8; }
+  .field input, .field select, .field textarea {
+    font: 400 16px/1.4 var(--body); color: var(--paper);
+    background: color-mix(in srgb, var(--paper) 7%, transparent);
+    border: 1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+    border-radius: 3px; padding: 12px 14px; width: 100%;
+  }
+  .field select option { color: #1B1510; background: #F3EADD; }
+  .field textarea { resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 30%, transparent); }
+  .field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: #E08A6B; }
+  .form-foot { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+  .form-status { font-size: 14.5px; }
+  @media (max-width: 640px) { .enquiry { grid-template-columns: 1fr; } }
+
+  .foot-links { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  .foot-links a { color: var(--ink-2); text-decoration: none; }
+  .foot-links a:hover { color: var(--gold-text); }
   .contact .btn.solid { background: var(--gold); border-color: var(--gold); color: #1B1510; }
   .contact .btn.solid:hover { background: var(--paper); border-color: var(--paper); }
   @media (max-width: 860px) { .contact .wrap { grid-template-columns: 1fr; } .contact .arch { max-width: 300px; } }
@@ -722,15 +761,58 @@
         <h2>Let's find the story, <em>then build the program around it.</em></h2>
         <p>Most projects start with a 30-minute discovery call (₦25,000). We'll talk about your audience, your goals and what success looks like, and I'll come back with a clear scope and quote.</p>
         <dl class="lines">
-          <div><dt>Email</dt><dd class="todo">[ email address ]</dd></div>
-          <div><dt>Instagram · LinkedIn</dt><dd class="todo">[ social handle ]</dd></div>
-          <div><dt>Based in</dt><dd>Abuja, Nigeria</dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:hello@stephanieosaro.com">hello@stephanieosaro.com</a></dd></div>
+          <div><dt>Phone · WhatsApp</dt><dd><a href="https://wa.me/2348000000000" target="_blank" rel="noopener">+234 800 000 0000</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://instagram.com/stephanieosaro" target="_blank" rel="noopener">@stephanieosaro</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/stephanieosaro" target="_blank" rel="noopener">in/stephanieosaro</a></dd></div>
+          <div><dt>Based in</dt><dd>Abuja, Nigeria · working remotely too</dd></div>
+          <div><dt>Replies</dt><dd>Within 48 hours, Mon–Fri</dd></div>
         </dl>
+        <div class="ctas">
+          <a class="btn solid" href="https://wa.me/2348000000000?text=Hi%20Stephanie%2C%20I%27d%20like%20to%20book%20a%20discovery%20call." target="_blank" rel="noopener">Book a discovery call</a>
+          <a class="btn ghost" href="#enquiry">Send an enquiry</a>
+        </div>
       </div>
       <figure class="arch">
         <img src="assets/portrait.jpg" alt="Stephanie Osaro in a red gown on the red carpet at a Blackbones Theatre Kompany production." loading="lazy" width="825" height="1100">
         <figcaption>At <i>Rhythm in Motion</i>, Blackbones Theatre Kompany.</figcaption>
       </figure>
+
+      <form class="enquiry" id="enquiry" novalidate>
+        <div class="enquiry-head">
+          <span class="caps">Project enquiry</span>
+          <h3>Tell me what you're building</h3>
+          <p>A few details help me come back with a useful answer. Sending opens your email app with your message filled in.</p>
+        </div>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-org">Organization <span>(optional)</span></label><input id="f-org" name="org" autocomplete="organization"></div>
+        <div class="field">
+          <label for="f-service">What do you need?</label>
+          <select id="f-service" name="service">
+            <option>Program design &amp; management</option>
+            <option>Community management</option>
+            <option>Event concept, script &amp; moderation</option>
+            <option>Content writing &amp; strategy</option>
+            <option>Research &amp; editing</option>
+            <option>Discovery call / not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-time">Timeline</label>
+          <select id="f-time" name="timeline">
+            <option>Flexible</option>
+            <option>Within a month</option>
+            <option>Within 2 weeks</option>
+            <option>Urgent: 24–48 hours (rush fee applies)</option>
+          </select>
+        </div>
+        <div class="field wide"><label for="f-msg">About the project</label><textarea id="f-msg" name="message" rows="5" required placeholder="Who is it for, what should it achieve, and when?"></textarea></div>
+        <div class="form-foot wide">
+          <p class="form-status" id="f-status" role="status"></p>
+          <button class="btn solid" type="submit">Send enquiry</button>
+        </div>
+      </form>
     </div>
   </section>
 </main>
@@ -738,6 +820,12 @@
 <footer>
   <div class="wrap">
     <img class="logo-card" src="assets/logo.jpg" alt="Stephanie Osaro logo: SO monogram with a gold pen nib." loading="lazy" width="1254" height="1254">
+    <ul class="foot-links">
+      <li><a href="mailto:hello@stephanieosaro.com">Email</a></li>
+      <li><a href="https://wa.me/2348000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li><a href="https://instagram.com/stephanieosaro" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.linkedin.com/in/stephanieosaro" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
     <p>© 2026 Stephanie Osaro · Program Manager | Content Strategist | Writer</p>
   </div>
 </footer>
@@ -767,6 +855,41 @@
         const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
         select(next); next.focus();
       });
+    });
+  })();
+
+  // Enquiry form: validates, then opens the visitor's email app with the message filled in
+  (function () {
+    const form = document.getElementById('enquiry');
+    const status = document.getElementById('f-status');
+    const TO = 'hello@stephanieosaro.com';
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let firstBad = null;
+      ['f-name', 'f-email', 'f-msg'].forEach(id => {
+        const el = document.getElementById(id);
+        const ok = el.value.trim() !== '' && el.checkValidity();
+        el.setAttribute('aria-invalid', !ok);
+        if (!ok && !firstBad) firstBad = el;
+      });
+      if (firstBad) {
+        status.textContent = 'Add your name, a valid email and a few words about the project.';
+        firstBad.focus();
+        return;
+      }
+      const v = id => document.getElementById(id).value.trim();
+      const subject = 'Project enquiry: ' + v('f-service') + (v('f-org') ? ' (' + v('f-org') + ')' : '');
+      const body = [
+        'Name: ' + v('f-name'),
+        'Email: ' + v('f-email'),
+        'Organization: ' + (v('f-org') || '—'),
+        'Service: ' + v('f-service'),
+        'Timeline: ' + v('f-time'),
+        '',
+        v('f-msg')
+      ].join('\n');
+      window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      status.textContent = 'Your email app should open with the message ready. If it doesn’t, write to ' + TO + '.';
     });
   })();
 
