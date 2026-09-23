@@ -8,7 +8,7 @@
 <meta name="description" content="Stephanie Osaro — program manager, community builder, content strategist and writer based in Abuja.">
 <meta name="theme-color" content="#4E0F16">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Stephanie Osaro — Program Manager, Content Strategist & Writer">
+<meta property="og:title" content="Stephanie Osaro — Programs Manager & Script Writer">
 <meta property="og:description" content="Good programs change lives. Good stories move people. Programs, communities and content from Abuja.">
 <meta property="og:url" content="https://lucianozambuko-gif.github.io/steph-site/">
 <meta property="og:image" content="https://lucianozambuko-gif.github.io/steph-site/assets/main-image.png">
@@ -166,9 +166,14 @@
   .about .arch img { aspect-ratio: 3 / 4; object-position: 50% 30%; }
   @media (max-width: 860px) { .about { grid-template-columns: 1fr; } .about .arch { max-width: 360px; } }
 
-  .disciplines { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
-  .disc { padding: 28px 28px 8px 0; display: grid; gap: 12px; align-content: start; }
-  .disc + .disc { padding-left: 28px; border-left: 1px solid var(--line); }
+  .disciplines { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  @media (min-width: 861px) and (max-width: 1100px) {
+    .disciplines { grid-template-columns: 1fr 1fr; }
+    .disc:nth-child(3) { border-left: 0; padding-left: 0; }
+    .disc:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+  .disc { padding: 28px 22px 8px 0; display: grid; gap: 12px; align-content: start; }
+  .disc + .disc { padding-left: 22px; border-left: 1px solid var(--line); }
   .disc p { color: var(--ink-2); font-size: 16px; }
   .disc ul { margin: 4px 0 0; padding: 0; list-style: none; font-size: 15px; color: var(--muted); display: grid; gap: 4px; }
   .disc li::before { content: "—"; color: var(--accent); margin-right: 8px; }
@@ -297,6 +302,27 @@
     .quarters div:nth-child(n+3) { border-top: 1px solid var(--line); }
   }
 
+  /* experience */
+  .xp { display: grid; grid-template-columns: 1fr 280px; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .xp-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--burgundy); }
+  .xp-list > li { display: grid; gap: 6px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+  .xp-when { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-variant-numeric: lining-nums; }
+  .xp-list h3 { font-size: 23px; color: var(--burgundy); }
+  .xp-org { font-weight: 600; font-size: 15px; color: var(--ink-2); margin-top: 4px; }
+  .xp-list ul { list-style: disc; margin: 12px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 16px; display: grid; gap: 6px; }
+  .xp-list ul li::marker { color: var(--accent); }
+  .xp-link { color: var(--accent); font-weight: 600; white-space: nowrap; }
+  .xp-side { display: grid; gap: 26px; background: var(--blush); border-radius: 4px; padding: 26px 24px; position: sticky; top: 90px; }
+  .xp-side h3 { font-size: 20px; color: var(--burgundy); padding-bottom: 8px; border-bottom: 1px solid var(--blush-2); }
+  .xp-side ul { list-style: none; margin: 6px 0 0; padding: 0; font-size: 15px; }
+  .xp-side ul li { padding: 7px 0; border-bottom: 1px dashed var(--blush-2); }
+  .xp-side p { font-size: 15px; margin-top: 10px; color: var(--ink-2); }
+  .xp-side .btn { justify-content: center; }
+  @media (max-width: 960px) {
+    .xp { grid-template-columns: 1fr; }
+    .xp-side { position: static; }
+  }
+
   /* services */
   .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
   .tabs button {
@@ -416,6 +442,7 @@
     <ul>
       <li><a href="#work">Work</a></li>
       <li class="opt"><a href="#community">Community</a></li>
+      <li class="opt"><a href="#experience">Experience</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a class="nav-cv" href="assets/Stephanie-Okoh-CV.pdf" download="Stephanie-Okoh-CV.pdf"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span class="long">Download </span>CV</a></li>
@@ -426,7 +453,7 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-copy">
-      <div class="roles caps"><span>Program Manager</span><span>Content Strategist</span><span>Writer</span></div>
+      <div class="roles caps"><span>Programs Manager</span><span>Script Writer</span></div>
       <h1>Good programs change lives. Good stories <em>move people.</em></h1>
       <p class="script">Stories at the core.</p>
       <p class="lede">I help brands, organizations, NGOs and communities turn ideas into programs people show up for, conversations they remember, and stories they actually engage with — planned with strategy, delivered with care.</p>
@@ -471,6 +498,12 @@
             <h3>From idea to run of show</h3>
             <p>Program design, project planning and coordination, from the concept note to the last group photo.</p>
             <ul><li>Program design &amp; strategy</li><li>Event program design</li><li>Monthly program retainers</li></ul>
+          </div>
+          <div class="disc">
+            <span class="caps">Scripts</span>
+            <h3>The words that run the room</h3>
+            <p>Concept notes, event scripts, run-of-show, moderation and discussion guides that hold an event together.</p>
+            <ul><li>Event concept notes</li><li>Scripts &amp; run-of-show</li><li>Moderation &amp; discussion guides</li></ul>
           </div>
           <div class="disc">
             <span class="caps">Communities</span>
@@ -614,6 +647,13 @@
           <p class="lede">A community model and management plan for SAFE SPACE: a WhatsApp-first network for women and girls to learn, connect, access mentorship and get practical support, designed to become a sustainable leadership pipeline.</p>
         </div>
 
+        <dl class="facts">
+          <div><dt>My role</dt><dd>Community Lead &amp; Programs Manager</dd></div>
+          <div><dt>Organization</dt><dd>SAFE SPACE Women's Mentorship Initiative</dd></div>
+          <div><dt>Since</dt><dd>September 2026</dd></div>
+          <div><dt>Format</dt><dd>WhatsApp-first community</dd></div>
+        </dl>
+
         <p class="quote-big">Women don't need another lecture. They need a community where they feel seen.</p>
 
         <ul class="pillars">
@@ -657,7 +697,120 @@
             <div><small>Q3</small><b>Money, Career &amp; Ambition</b></div>
             <div><small>Q4</small><b>Becoming HER</b></div>
           </div>
-          <p style="color:var(--ink-2)">The plan covers a month-by-month theme calendar, weekly expert sessions, mentorship circles, skills workshops, quarterly Abuja meet-ups, school outreach and impact tracking. My role in it is community lead: <em>not the teacher, but the host, the connector, the conversation starter, and the safe person in the room.</em></p>
+          <p style="color:var(--ink-2)">The plan covers a month-by-month theme calendar, weekly expert sessions, mentorship circles, skills workshops, quarterly Abuja meet-ups, school outreach and impact tracking. As community lead and programs manager, my role is <em>not the teacher, but the host, the connector, the conversation starter, and the safe person in the room.</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="block" id="experience">
+    <div class="wrap sec">
+      <div class="margin"><span class="caps">Experience</span></div>
+      <div class="sec-body">
+        <div class="sec-head">
+          <span class="caps">Career · Abuja, Nigeria</span>
+          <h2>Where I've <em>done the work.</em></h2>
+          <p class="lede">Programs, communities, events and editorial work for PR networks, NGOs, publishers and event companies.</p>
+        </div>
+        <div class="xp">
+          <ol class="xp-list">
+            <li>
+              <p class="xp-when">2026 – Present</p>
+              <div>
+                <h3>Assistant Producer &amp; Script Writer</h3>
+                <p class="xp-org">Literature &amp; Coffee NG · Abuja PR Network</p>
+                <ul>
+                  <li>Write the concept notes, conversation scripts and three-hour event flows for a café-hopping conversation series, first held on 17 July 2026.</li>
+                  <li>Host and moderate from the floor, and build each edition's toolkit: agendas, discussion guides, prompt cards, polls and an NDPA 2023 consent form.</li>
+                  <li>Work with the crew across production, creative direction, media and logistics. <a class="xp-link" href="#work">See the case study</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p class="xp-when">Sep 2026 – Present</p>
+              <div>
+                <h3>Community Lead &amp; Programs Manager</h3>
+                <p class="xp-org">SAFE SPACE · Women's Mentorship &amp; Community Development Initiative</p>
+                <ul>
+                  <li>Designed the community model and management plan for a WhatsApp-first network where women and girls learn, connect and access mentorship.</li>
+                  <li>Built the program around five pillars, a weekly content rhythm and a month-by-month theme calendar.</li>
+                  <li>Develop mentorship circles, mentor/mentee matching, onboarding materials, registration forms and participation guidelines, and track engagement and retention. <a class="xp-link" href="#community">See the community model</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p class="xp-when">June – Present</p>
+              <div>
+                <h3>Event Host &amp; Content Writer</h3>
+                <p class="xp-org">Abuja PR</p>
+                <ul>
+                  <li>Host and red-carpet presenter for corporate, social and media events, interviewing guests, speakers and stakeholders.</li>
+                  <li>Write articles, event content and communication materials for digital platforms to grow engagement and brand visibility.</li>
+                  <li>Support event coordination, guest management and PR, working with creative and media teams on coverage and storytelling.</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p class="xp-when">June 2026 – Present</p>
+              <div>
+                <h3>Communications &amp; Outreach Volunteer</h3>
+                <p class="xp-org">IDWF Initiative</p>
+                <ul>
+                  <li>Create content and stakeholder communication materials for campaigns, advocacy and community initiatives.</li>
+                  <li>Support fundraising campaigns and donation drives for women and girls, and promote activities on social media and in the community.</li>
+                  <li>Contribute to project planning, event coordination, documentation and reporting.</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p class="xp-when">May 2025 – Apr 2026</p>
+              <div>
+                <h3>Writer &amp; Social Media Manager</h3>
+                <p class="xp-org">WuGeng Publishing</p>
+                <ul>
+                  <li>Developed trending, socially conscious article topics and managed their promotion on social media to grow engagement.</li>
+                  <li>Edited and reviewed submissions from other writers to maintain quality standards.</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p class="xp-when">2023 – 2024</p>
+              <div>
+                <h3>Personal Coordinator</h3>
+                <p class="xp-org">Eventsrail</p>
+                <ul>
+                  <li>Managed guest registration, identity tagging, accountability and seating arrangements for smooth event delivery.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+
+          <aside class="xp-side" aria-label="Skills, tools and education">
+            <div>
+              <h3>Core skills</h3>
+              <ul>
+                <li>Program &amp; project management</li>
+                <li>Scriptwriting &amp; storytelling</li>
+                <li>Event hosting &amp; moderation</li>
+                <li>Community building &amp; engagement</li>
+                <li>Stakeholder engagement &amp; PR</li>
+                <li>Content strategy &amp; copywriting</li>
+                <li>Social media management</li>
+                <li>Research, editing &amp; proofreading</li>
+                <li>Volunteer coordination</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Tools</h3>
+              <p>Microsoft 365 · Google Workspace · Canva</p>
+            </div>
+            <div>
+              <h3>Education</h3>
+              <p><strong>B.Sc. Public Administration</strong><br>University of Abuja · 2019 – 2023</p>
+            </div>
+            <a class="btn solid" href="assets/Stephanie-Okoh-CV.pdf" download="Stephanie-Okoh-CV.pdf"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Download full CV</a>
+          </aside>
         </div>
       </div>
     </div>
@@ -776,7 +929,7 @@
         <div class="ctas">
           <a class="btn solid" href="https://wa.me/2348161107337?text=Hi%20Stephanie%2C%20I%27d%20like%20to%20book%20a%20discovery%20call." target="_blank" rel="noopener">Book a discovery call</a>
           <a class="btn ghost" href="#enquiry">Send an enquiry</a>
-          <a class="btn ghost" href="assets/Stephanie-Okoh-CV.pdf" download="Stephanie-Okoh-CV.pdf"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Download CV <small class="file-meta">PDF · 85 KB</small></a>
+          <a class="btn ghost" href="assets/Stephanie-Okoh-CV.pdf" download="Stephanie-Okoh-CV.pdf"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Download CV <small class="file-meta">PDF · 2 pages</small></a>
         </div>
       </div>
       <figure class="arch">
@@ -832,7 +985,7 @@
       <li><a href="https://www.instagram.com/stephanieosaro/" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="https://www.linkedin.com/in/stephanie-okoh-a66867305/" target="_blank" rel="noopener">LinkedIn</a></li>
     </ul>
-    <p>© 2026 Stephanie Osaro · Program Manager | Content Strategist | Writer</p>
+    <p>© 2026 Stephanie Osaro · Programs Manager | Script Writer</p>
   </div>
 </footer>
 
