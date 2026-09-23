@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stephanie Osaro</title>
+<link rel="icon" href="assets/logo.jpg">
+<meta name="description" content="Stephanie Osaro — program manager, community builder, content strategist and writer based in Abuja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Hanken+Grotesk:wght@400;500;600&family=Pinyon+Script&display=swap">
+<style>
+  :root {
+    --paper: #F3EADD;
+    --paper-2: #EBDFCD;
+    --surface: #FAF5EC;
+    --ink: #1B1510;
+    --ink-2: #4A4036;
+    --muted: #6E6254;
+    --line: #D8C8B1;
+    --gold: #B07A2A;
+    --gold-text: #8A5E1C;
+    --on-dark: #F3EADD;
+    --photo-shadow: 0 1px 0 rgba(27,21,16,.06), 0 18px 40px -24px rgba(27,21,16,.45);
+
+    --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+    --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+    --script: "Pinyon Script", "Snell Roundhand", "Segoe Script", cursive;
+
+    --gutter: clamp(16px, 4vw, 40px);
+    --max: 1180px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #16110C;
+      --paper-2: #1F1812;
+      --surface: #211A13;
+      --ink: #F1E7D8;
+      --ink-2: #D7CBB9;
+      --muted: #AB9D8A;
+      --line: #3B3127;
+      --gold: #D3A252;
+      --gold-text: #DDB067;
+      --photo-shadow: 0 18px 40px -24px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #16110C;
+    --paper-2: #1F1812;
+    --surface: #211A13;
+    --ink: #F1E7D8;
+    --ink-2: #D7CBB9;
+    --muted: #AB9D8A;
+    --line: #3B3127;
+    --gold: #D3A252;
+    --gold-text: #DDB067;
+    --photo-shadow: 0 18px 40px -24px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+  /* ---------- type ---------- */
+  .caps {
+    font-family: var(--display);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+  }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+  h1 { font-size: clamp(40px, 6.2vw, 78px); line-height: 1.02; font-optical-sizing: auto; }
+  h2 { font-size: clamp(32px, 4.2vw, 52px); line-height: 1.08; }
+  h3 { font-size: clamp(22px, 2.2vw, 27px); line-height: 1.2; }
+  h1 em, h2 em { font-style: italic; color: var(--gold-text); }
+  p { margin: 0; }
+  .lede { font-size: clamp(18px, 1.6vw, 20px); color: var(--ink-2); max-width: 36em; }
+  .script { font-family: var(--script); color: var(--gold-text); font-weight: 400; line-height: 1; }
+
+  /* ---------- nav ---------- */
+  .nav {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .mono { font-family: var(--display); font-size: 30px; line-height: 1; letter-spacing: -.12em; position: relative; padding-right: 6px; }
+  .mono i { font-style: normal; position: relative; left: -2px; top: 4px; }
+  .mono::after { content: ""; position: absolute; left: 4px; right: -4px; bottom: 5px; height: 1.5px; background: var(--gold); transform: rotate(-14deg); border-radius: 2px; }
+  .brand-name { font-family: var(--display); font-size: 13px; letter-spacing: .24em; text-transform: uppercase; }
+  .nav ul { display: flex; gap: clamp(14px, 2.4vw, 32px); list-style: none; margin: 0; padding: 0; }
+  .nav ul a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--ink-2); }
+  .nav ul a:hover { color: var(--gold-text); }
+  @media (max-width: 720px) { .brand-name, .nav li.opt { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding-block: clamp(40px, 7vw, 88px) clamp(48px, 7vw, 96px); position: relative; }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .hero-copy { display: grid; gap: 26px; }
+  .hero .script { font-size: clamp(34px, 3.6vw, 46px); margin-top: -4px; }
+  .roles { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+  .roles span + span::before { content: "|"; color: var(--gold); margin-right: 14px; font-weight: 400; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 22px; border-radius: 999px; text-decoration: none;
+    font-weight: 600; font-size: 15px; border: 1px solid var(--ink);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn.solid:hover { background: var(--gold); border-color: var(--gold); color: #1B1510; }
+  .btn.ghost:hover { border-color: var(--gold); color: var(--gold-text); }
+
+  .arch { position: relative; margin: 0; }
+  .arch img {
+    width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+    border-radius: 999px 999px 6px 6px; box-shadow: var(--photo-shadow);
+  }
+  .arch figcaption { font-size: 13px; color: var(--muted); margin-top: 14px; padding-left: 4px; }
+  .hero .arch img { object-position: 74% 40%; }
+
+  .pen { position: absolute; inset: auto 0 0 0; height: 120px; pointer-events: none; overflow: visible; }
+  .pen path { fill: none; stroke: var(--gold); stroke-width: 1.4; stroke-linecap: round; }
+  .pen .nib { fill: var(--gold); stroke: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .pen path.stroke { stroke-dasharray: 1600; stroke-dashoffset: 1600; animation: draw 2.6s .3s cubic-bezier(.6,.1,.3,1) forwards; }
+    .pen .nib { opacity: 0; animation: appear .4s 2.6s forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes appear { to { opacity: 1; } }
+  }
+
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .hero .arch { max-width: 420px; }
+    .pen { display: none; }
+  }
+
+  /* ---------- sections ---------- */
+  section.block { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid var(--line); }
+  .sec { display: grid; grid-template-columns: 200px 1fr; gap: clamp(20px, 4vw, 56px); }
+  .sec > .margin { padding-top: 10px; }
+  .sec > .margin .caps { position: sticky; top: 90px; display: block; }
+  .sec-body { display: grid; gap: clamp(36px, 5vw, 56px); min-width: 0; }
+  .sec-head { display: grid; gap: 18px; max-width: 760px; }
+  @media (max-width: 860px) {
+    .sec { grid-template-columns: 1fr; }
+    .sec > .margin .caps { position: static; }
+  }
+
+  /* about */
+  .about { display: grid; grid-template-columns: 1fr 340px; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .about .text { display: grid; gap: 18px; color: var(--ink-2); max-width: 36em; }
+  .about .text p:first-child { font-family: var(--display); font-size: clamp(22px, 2.3vw, 28px); line-height: 1.35; color: var(--ink); }
+  .about .arch img { aspect-ratio: 3 / 4; object-position: 50% 30%; }
+  @media (max-width: 860px) { .about { grid-template-columns: 1fr; } .about .arch { max-width: 360px; } }
+
+  .disciplines { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+  .disc { padding: 28px 28px 8px 0; display: grid; gap: 12px; align-content: start; }
+  .disc + .disc { padding-left: 28px; border-left: 1px solid var(--line); }
+  .disc p { color: var(--ink-2); font-size: 16px; }
+  .disc ul { margin: 4px 0 0; padding: 0; list-style: none; font-size: 15px; color: var(--muted); display: grid; gap: 4px; }
+  .disc li::before { content: "—"; color: var(--gold); margin-right: 8px; }
+  @media (max-width: 860px) {
+    .disciplines { grid-template-columns: 1fr; }
+    .disc, .disc + .disc { padding: 24px 0; border-left: 0; }
+    .disc + .disc { border-top: 1px solid var(--line); }
+  }
+
+  /* case study header */
+  .case-top { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  @media (max-width: 960px) { .case-top { grid-template-columns: 1fr; } }
+  .flyers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 0; padding: 24px 12px 12px; max-width: 560px; justify-self: center; width: 100%; }
+  .flyers img { width: 100%; height: auto; align-self: start; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; box-shadow: var(--photo-shadow); border: 5px solid var(--surface); transition: transform .35s ease; }
+  .flyers img:nth-child(1) { transform: rotate(-6deg) translate(12%, 6%); }
+  .flyers img:nth-child(2) { transform: translateY(-4%); position: relative; z-index: 2; }
+  .flyers img:nth-child(3) { transform: rotate(6deg) translate(-12%, 6%); }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .flyers:hover img:nth-child(1) { transform: rotate(-9deg) translate(2%, 4%); }
+    .flyers:hover img:nth-child(3) { transform: rotate(9deg) translate(-2%, 4%); }
+  }
+
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--line); }
+  .facts div { padding: 18px 20px 18px 0; display: grid; gap: 4px; }
+  .facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+  .facts dt { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .facts dd { margin: 0; font-family: var(--display); font-size: 19px; line-height: 1.3; }
+  @media (max-width: 760px) {
+    .facts { grid-template-columns: 1fr 1fr; }
+    .facts div, .facts div + div { padding: 16px 12px 16px 0; border-left: 0; }
+    .facts div:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+    .facts div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  /* editions */
+  .editions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .edition { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 26px 24px; display: grid; gap: 14px; align-content: start; }
+  .edition .caps { font-size: 11.5px; }
+  .edition h3 { font-size: 22px; }
+  .edition ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; counter-reset: c; }
+  .edition li { counter-increment: c; display: grid; grid-template-columns: 26px 1fr; font-size: 15px; color: var(--ink-2); line-height: 1.45; }
+  .edition li::before { content: counter(c, upper-roman); font-family: var(--display); color: var(--gold-text); font-size: 14px; }
+  .edition .closing { border-top: 1px dashed var(--line); padding-top: 14px; font-family: var(--display); font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink); }
+  @media (max-width: 960px) { .editions { grid-template-columns: 1fr; } }
+
+  /* run of show */
+  .ros { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  @media (max-width: 960px) { .ros { grid-template-columns: 1fr; } }
+  .ros-intro { display: grid; gap: 16px; }
+  .ros-intro p { color: var(--ink-2); }
+  .schedule { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--gold); }
+  .schedule li { display: grid; grid-template-columns: 84px 1fr; gap: 16px; padding: 12px 0 12px 22px; position: relative; }
+  .schedule li::before { content: ""; position: absolute; left: -4.5px; top: 21px; width: 8px; height: 8px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--gold); }
+  .schedule li.major::before { background: var(--gold); }
+  .schedule time { font-family: var(--display); font-size: 17px; font-variant-numeric: tabular-nums lining-nums; color: var(--gold-text); white-space: nowrap; }
+  .schedule strong { display: block; font-weight: 600; }
+  .schedule span { font-size: 15px; color: var(--muted); }
+
+  .toolkit { display: flex; flex-wrap: wrap; gap: 10px; }
+  .toolkit span { border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-size: 14.5px; color: var(--ink-2); background: var(--surface); }
+
+  /* gallery */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 170px; gap: 10px; }
+  .gallery button { padding: 0; border: 0; background: var(--paper-2); cursor: zoom-in; position: relative; overflow: hidden; border-radius: 3px; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+  .gallery button:hover img { transform: scale(1.04); }
+  .gallery .cap {
+    position: absolute; left: 0; right: 0; bottom: 0; text-align: left;
+    padding: 28px 12px 10px; font-size: 13px; color: #F3EADD;
+    background: linear-gradient(transparent, rgba(20,15,10,.78));
+  }
+  .gallery .w2 { grid-column: span 2; }
+  .gallery .h2 { grid-row: span 2; }
+  @media (max-width: 760px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
+    .gallery .w2 { grid-column: span 2; }
+  }
+  .crew { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: center; }
+  .crew img { border-radius: 4px; box-shadow: var(--photo-shadow); }
+  .crew p { color: var(--ink-2); }
+  @media (max-width: 860px) { .crew { grid-template-columns: 1fr; } }
+
+  dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: min(1100px, 94vw); max-height: 92vh; }
+  dialog.lightbox::backdrop { background: rgba(14,10,7,.88); }
+  dialog.lightbox img { max-height: 82vh; width: auto; margin-inline: auto; border-radius: 3px; }
+  dialog.lightbox p { color: #F3EADD; text-align: center; margin-top: 12px; font-size: 15px; }
+  dialog.lightbox .close { position: fixed; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; background: #F3EADD; color: #1B1510; border: 0; border-radius: 999px; padding: 8px 16px; font: 600 14px var(--body); cursor: pointer; }
+
+  /* safe space */
+  .quote-big { font-family: var(--display); font-size: clamp(28px, 3.6vw, 44px); line-height: 1.2; font-style: italic; max-width: 22em; text-wrap: balance; }
+  .quote-big::before { content: "“"; color: var(--gold); }
+  .quote-big::after { content: "”"; color: var(--gold); }
+  .pillars { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .pillars li { display: grid; grid-template-columns: minmax(150px, 230px) 1fr; gap: 12px 32px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .pillars h3 { font-size: 24px; }
+  .pillars h3 small { display: block; font-family: var(--body); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+  .pillars p { color: var(--ink-2); font-size: 16px; }
+  @media (max-width: 640px) { .pillars li { grid-template-columns: 1fr; } }
+
+  .week { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .day { border-top: 2px solid var(--gold); padding-top: 12px; display: grid; gap: 6px; align-content: start; }
+  .day b { font-family: var(--display); font-weight: 500; font-size: 19px; }
+  .day span { font-size: 14.5px; color: var(--ink-2); line-height: 1.45; }
+  @media (max-width: 860px) { .week { grid-template-columns: 1fr 1fr; gap: 20px 16px; } }
+
+  .letter {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
+    padding: clamp(24px, 4vw, 44px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 48px);
+  }
+  .letter .script { font-size: clamp(40px, 5vw, 60px); }
+  .letter p { color: var(--ink-2); }
+  .letter ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-family: var(--display); font-style: italic; font-size: 19px; }
+  .letter li { border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
+  @media (max-width: 760px) { .letter { grid-template-columns: 1fr; } }
+
+  .quarters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-block: 1px solid var(--line); }
+  .quarters div { padding: 18px 18px 18px 0; display: grid; gap: 4px; }
+  .quarters div + div { padding-left: 18px; border-left: 1px solid var(--line); }
+  .quarters b { font-family: var(--display); font-weight: 400; font-size: 20px; line-height: 1.25; }
+  .quarters small { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  @media (max-width: 760px) {
+    .quarters { grid-template-columns: 1fr 1fr; }
+    .quarters div, .quarters div + div { padding: 14px 12px 14px 0; border-left: 0; }
+    .quarters div:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+    .quarters div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  /* services */
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tabs button {
+    font: 500 15px var(--body); color: var(--ink-2); background: transparent;
+    border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px; cursor: pointer;
+  }
+  .tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .rate-panel { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 56px; }
+  @media (max-width: 860px) { .rate-panel { grid-template-columns: 1fr; } }
+  .rate-group h3 { font-size: 22px; padding-bottom: 10px; border-bottom: 1px solid var(--ink); }
+  .rate-group dl { margin: 0; }
+  .rate-group div { display: flex; align-items: baseline; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .rate-group dt { font-size: 16px; }
+  .rate-group .dots { flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-4px); min-width: 12px; }
+  .rate-group dd { margin: 0; font-family: var(--display); font-size: 17px; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; text-align: right; }
+  .rate-group dd small { font-family: var(--body); font-size: 12px; color: var(--muted); letter-spacing: .04em; margin-right: 4px; }
+  .terms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--ink); color: var(--paper); border-radius: 4px; }
+  .terms div { padding: 22px 22px; display: grid; gap: 4px; }
+  .terms div + div { border-left: 1px solid color-mix(in srgb, var(--paper) 18%, transparent); }
+  .terms b { font-family: var(--display); font-weight: 400; font-size: 30px; color: var(--gold); line-height: 1.1; }
+  .terms span { font-size: 14px; opacity: .85; }
+  @media (max-width: 760px) {
+    .terms { grid-template-columns: 1fr 1fr; }
+    .terms div + div { border-left: 0; }
+    .terms div:nth-child(even) { border-left: 1px solid color-mix(in srgb, var(--paper) 18%, transparent); }
+    .terms div:nth-child(n+3) { border-top: 1px solid color-mix(in srgb, var(--paper) 18%, transparent); }
+  }
+  .fine { font-size: 14px; color: var(--muted); }
+
+  /* statement + contact */
+  .statement { text-align: center; display: grid; gap: 22px; justify-items: center; padding-block: clamp(72px, 10vw, 130px); border-top: 1px solid var(--line); }
+  .statement p.big { font-family: var(--display); font-size: clamp(30px, 4.4vw, 58px); line-height: 1.12; max-width: 17em; text-wrap: balance; }
+  .statement .script { font-size: clamp(34px, 4vw, 50px); }
+
+  .contact { background: var(--ink); color: var(--paper); padding-block: clamp(56px, 8vw, 100px); }
+  .contact .wrap { display: grid; grid-template-columns: 1fr 320px; gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .contact h2 { color: var(--paper); }
+  .contact h2 em { color: var(--gold); }
+  .contact .caps { color: var(--gold); }
+  .contact p { color: color-mix(in srgb, var(--paper) 82%, transparent); max-width: 34em; }
+  .contact .inner { display: grid; gap: 22px; }
+  .contact .arch img { aspect-ratio: 3/4; object-position: 50% 25%; box-shadow: none; }
+  .contact .arch figcaption { color: color-mix(in srgb, var(--paper) 60%, transparent); }
+  .lines { display: grid; gap: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent); max-width: 520px; }
+  .lines div { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 22%, transparent); }
+  .lines dt { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; opacity: .7; font-weight: 600; align-self: center; }
+  .lines dd { margin: 0; font-family: var(--display); font-size: 19px; user-select: all; }
+  .lines dd.todo { font-family: var(--body); font-size: 15px; opacity: .6; border: 1px dashed currentColor; border-radius: 3px; padding: 2px 10px; user-select: auto; }
+  .contact .btn.solid { background: var(--gold); border-color: var(--gold); color: #1B1510; }
+  .contact .btn.solid:hover { background: var(--paper); border-color: var(--paper); }
+  @media (max-width: 860px) { .contact .wrap { grid-template-columns: 1fr; } .contact .arch { max-width: 300px; } }
+  /* contact block is always dark ink, in either theme */
+  .contact { --paper: #F3EADD; --ink: #16110C; background: #16110C; }
+
+  footer { padding-block: 40px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+  footer .logo-card { width: 92px; border-radius: 4px; }
+  footer p { font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Stephanie Osaro — home">
+      <span class="mono" aria-hidden="true">S<i>O</i></span>
+      <span class="brand-name">Stephanie Osaro</span>
+    </a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li class="opt"><a href="#community">Community</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="roles caps"><span>Program Manager</span><span>Content Strategist</span><span>Writer</span></div>
+      <h1>Good programs change lives. Good stories <em>move people.</em></h1>
+      <p class="script">Stories at the core.</p>
+      <p class="lede">I help brands, organizations, NGOs and communities turn ideas into programs people show up for, conversations they remember, and stories they actually engage with — planned with strategy, delivered with care.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#work">See the work</a>
+        <a class="btn ghost" href="#contact">Book a discovery call</a>
+      </div>
+    </div>
+    <figure class="arch">
+      <img src="assets/hero-stephanie.jpg" alt="Stephanie Osaro working on a tablet at a Literature &amp; Coffee NG gathering, crew lanyard on, guests seated behind her." width="1000" height="750">
+      <figcaption>On the floor at Literature &amp; Coffee NG, Abuja.</figcaption>
+    </figure>
+  </div>
+  <svg class="pen" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path class="stroke" d="M-20 96 C 260 40, 420 118, 640 84 S 1020 18, 1230 70 S 1390 96, 1410 64"/>
+    <path class="nib" d="M1410 64 l 10 -22 l 8 4 l -10 22 z"/>
+  </svg>
+</header>
+
+<main>
+  <!-- ABOUT -->
+  <section class="block" id="about">
+    <div class="wrap sec">
+      <div class="margin"><span class="caps">About</span></div>
+      <div class="sec-body">
+        <div class="about">
+          <div class="text">
+            <p>A storyteller at heart. I use words, ideas and conversations to help brands and people connect in ways that mean something.</p>
+            <p>My work sits where storytelling meets strategy. I create content, host and moderate events, design communication campaigns and community programs, and help brands shape stories people care about.</p>
+            <p>People know me for a thoughtful approach, a sharp wit and a knack for finding the story under the surface. I believe every brand, event and person has a story worth telling, and worth telling well.</p>
+            <p>Outside client work, I'm drawn to literature, mental-health awareness and community building: spaces where people can learn, connect and share ideas.</p>
+          </div>
+          <figure class="arch">
+            <img src="assets/hosting.jpg" alt="Stephanie holding a microphone, leading a conversation outdoors at a café venue." loading="lazy" width="1024" height="657">
+            <figcaption>Moderating a conversation circle.</figcaption>
+          </figure>
+        </div>
+
+        <div class="disciplines">
+          <div class="disc">
+            <span class="caps">Programs</span>
+            <h3>From idea to run of show</h3>
+            <p>Program design, project planning and coordination, from the concept note to the last group photo.</p>
+            <ul><li>Program design &amp; strategy</li><li>Event program design</li><li>Monthly program retainers</li></ul>
+          </div>
+          <div class="disc">
+            <span class="caps">Communities</span>
+            <h3>Spaces people return to</h3>
+            <p>Community models, engagement plans and mentorship structures, built on stories, vulnerability and participation.</p>
+            <ul><li>WhatsApp community management</li><li>Growth &amp; engagement plans</li><li>Mentor/mentee programs</li></ul>
+          </div>
+          <div class="disc">
+            <span class="caps">Stories</span>
+            <h3>Words that do the work</h3>
+            <p>Articles, brand stories, campaign messaging and event scripts, written for the people who'll actually read them.</p>
+            <ul><li>Thought leadership &amp; features</li><li>Brand &amp; website copy</li><li>Scripts &amp; moderation guides</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY: LITERATURE & COFFEE -->
+  <section class="block" id="work">
+    <div class="wrap sec">
+      <div class="margin"><span class="caps">Case study</span></div>
+      <div class="sec-body">
+        <div class="case-top">
+          <div class="sec-head">
+            <span class="caps">Literature &amp; Coffee NG · Abuja</span>
+            <h2>Where stories brew and <em>conversations flow.</em></h2>
+            <p class="lede">A community-driven conversation series from the Abuja PR Network that brings readers, creatives, students and young professionals together over coffee, books and honest dialogue. Each edition moves to a new café, restaurant or creative space, so every gathering also puts a local business in the spotlight.</p>
+          </div>
+          <div class="flyers" aria-label="Event campaign flyers">
+            <img src="assets/flyer-1.jpg" alt="Literature and Coffee Episode 2 flyer, Jabi Lake Mall, the 14th." loading="lazy" width="880" height="1100">
+            <img src="assets/flyer-2.jpg" alt="Literature and Coffee flyer: read deeply, think freely, speak boldly." loading="lazy" width="943" height="1100">
+            <img src="assets/flyer-3.jpg" alt="Literature and Coffee flyer in yellow, Jabi Lake Mall, the 11th at 5pm." loading="lazy" width="952" height="1100">
+          </div>
+        </div>
+
+        <dl class="facts">
+          <div><dt>My role</dt><dd>Assistant Producer &amp; Script Writer</dd></div>
+          <div><dt>Organizer</dt><dd>Abuja PR Network</dd></div>
+          <div><dt>Format</dt><dd>Café-hopping, 5:00–8:00 PM</dd></div>
+          <div><dt>First gathering</dt><dd>17 July 2026</dd></div>
+        </dl>
+
+        <div class="sec-head">
+          <h3>Every edition starts with a question worth arguing about</h3>
+          <p style="color:var(--ink-2)">I write the concept notes and conversation scripts: the themes, the guiding questions and the prompts that get a room of strangers talking.</p>
+        </div>
+        <div class="editions">
+          <article class="edition">
+            <span class="caps">Inaugural · 17 July 2026</span>
+            <h3>Where Stories Brew and Conversations Flow</h3>
+            <ol>
+              <li>Who owns the Nigerian story?</li>
+              <li>Why doesn't Nollywood adapt more Nigerian books?</li>
+            </ol>
+            <p class="closing">“What conversation would you like Nigeria to be having more often?”</p>
+          </article>
+          <article class="edition">
+            <span class="caps">Culture edition</span>
+            <h3>Reality TV, Real Culture? BBNaija &amp; Love Island</h3>
+            <ol>
+              <li>Entertainment or social experiment?</li>
+              <li>Love, strategy, or survival?</li>
+              <li>The business of reality TV</li>
+            </ol>
+            <p class="closing">“If you could create a Nigerian reality show, what would it be about?”</p>
+          </article>
+          <article class="edition">
+            <span class="caps">Part 3</span>
+            <h3>From Page to Playlist: Are Musicians the New Poets?</h3>
+            <ol>
+              <li>Are musicians the modern-day poets?</li>
+              <li>Have we lost the art of great lyrics?</li>
+              <li>What makes words memorable?</li>
+            </ol>
+            <p class="closing">“Who has influenced your thinking more: a writer or a musician?”</p>
+          </article>
+        </div>
+
+        <div class="ros">
+          <div class="ros-intro">
+            <span class="caps">Run of show</span>
+            <h3>Three hours, planned to the minute, and still loose enough to breathe</h3>
+            <p>Every evening follows an event flow I script: structured enough to keep the energy up, open enough that the best moments come from the floor. This is the flow for the reality-TV edition.</p>
+            <p>Interactive formats keep readers and non-readers alike in the room. There are prompt cards on every table, hot-take icebreakers, and polls where guests physically pick a side: <em>Team Lyrics Matter</em> or <em>Team Vibes Matter</em>.</p>
+          </div>
+          <ol class="schedule">
+            <li><time>5:00 PM</time><div><strong>Arrival &amp; coffee networking</strong><span>Name tags, and reality-TV prompt cards on the tables</span></div></li>
+            <li><time>5:20 PM</time><div><strong>Welcome &amp; introduction</strong><span>The café-hopping concept, the theme and the house rules</span></div></li>
+            <li><time>5:30 PM</time><div><strong>Icebreaker</strong><span>“BBNaija is more influential than Nollywood.” Where do you stand?</span></div></li>
+            <li class="major"><time>5:40 PM</time><div><strong>Conversation one</strong><span>Entertainment or social experiment?</span></div></li>
+            <li><time>6:15 PM</time><div><strong>Coffee break</strong><span>Refreshments and informal conversations</span></div></li>
+            <li class="major"><time>6:25 PM</time><div><strong>Conversation two</strong><span>Love, strategy, or survival?</span></div></li>
+            <li class="major"><time>6:55 PM</time><div><strong>Conversation three</strong><span>The business of reality TV</span></div></li>
+            <li><time>7:25 PM</time><div><strong>Community conversation</strong><span>Next topics and next cafés, and an invite to the WhatsApp group</span></div></li>
+            <li><time>7:45 PM</time><div><strong>Closing reflections</strong><span>Roundtable, key takeaways, and the group photograph</span></div></li>
+          </ol>
+        </div>
+
+        <div class="sec-head">
+          <span class="caps">The toolkit behind each edition</span>
+          <div class="toolkit">
+            <span>Concept notes</span><span>Event agendas &amp; flows</span><span>Host opening remarks</span><span>Discussion guides</span><span>Guiding questions &amp; debate prompts</span><span>Table prompt cards</span><span>Icebreakers &amp; interactive polls</span><span>Media release &amp; NDPA 2023 consent form</span>
+          </div>
+        </div>
+
+        <div class="gallery" id="gallery">
+          <button class="w2 h2" data-cap="On the mic between conversations."><img src="assets/g12.jpg" alt="Stephanie laughing with a microphone, seated beside a guest." loading="lazy"><span class="cap">On the mic between conversations</span></button>
+          <button data-cap="A guest takes the open floor."><img src="assets/g02.jpg" alt="A guest speaks into a microphone at a wooden table." loading="lazy"><span class="cap">Open floor</span></button>
+          <button data-cap="A full room at the café venue."><img src="assets/g06.jpg" alt="Wide view of a café full of guests seated at long tables." loading="lazy"><span class="cap">A full room</span></button>
+          <button class="w2" data-cap="Moderating from the table."><img src="assets/g15.jpg" alt="Stephanie with a microphone and tablet as a guest across the room makes a point." loading="lazy"><span class="cap">Moderating from the table</span></button>
+          <button data-cap="Coffee and connection break."><img src="assets/g11.jpg" alt="Crew and guests gathered around the coffee station." loading="lazy"><span class="cap">Coffee &amp; connection</span></button>
+          <button data-cap="Registration and the coffee mixer, before doors open."><img src="assets/g14.jpg" alt="Registration table with cups, tablets and crew." loading="lazy"><span class="cap">Registration &amp; coffee mixer</span></button>
+          <button data-cap="Everyone gets a turn to speak."><img src="assets/g04.jpg" alt="A guest with a red handbag speaks into a microphone." loading="lazy"><span class="cap">Everyone gets a turn</span></button>
+          <button data-cap="Conversation circles."><img src="assets/g07.jpg" alt="Three guests in conversation at a table." loading="lazy"><span class="cap">Conversation circles</span></button>
+          <button class="w2" data-cap="Behind the scenes: running the flow with the crew."><img src="assets/g13.jpg" alt="Stephanie and crew members working through the event flow on a tablet." loading="lazy"><span class="cap">Running the flow with the crew</span></button>
+          <button data-cap="A guest makes their case."><img src="assets/g09.jpg" alt="A young man speaks into a microphone during the debate." loading="lazy"><span class="cap">Making the case</span></button>
+          <button data-cap="The venue before the evening begins."><img src="assets/g16.jpg" alt="Lakeside café tables before guests arrive." loading="lazy"><span class="cap">The venue, before doors open</span></button>
+        </div>
+
+        <div class="crew">
+          <img src="assets/crew.jpg" alt="The Literature &amp; Coffee NG crew in black T-shirts and lanyards, standing in front of the event banner." loading="lazy" width="1024" height="683">
+          <div class="sec-head">
+            <span class="caps">The crew</span>
+            <h3>Built with a team, held together by a script</h3>
+            <p>A small crew runs each gathering, covering production, creative direction, media, logistics and script. As assistant producer and script writer, I turn each theme into a flow the whole team can deliver on the night.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFE SPACE -->
+  <section class="block" id="community">
+    <div class="wrap sec">
+      <div class="margin"><span class="caps">Community design</span></div>
+      <div class="sec-body">
+        <div class="sec-head">
+          <span class="caps">Safe Space · Women &amp; girls community model</span>
+          <h2>A community where women <em>feel seen.</em></h2>
+          <p class="lede">A community model and management plan for SAFE SPACE: a WhatsApp-first network for women and girls to learn, connect, access mentorship and get practical support, designed to become a sustainable leadership pipeline.</p>
+        </div>
+
+        <p class="quote-big">Women don't need another lecture. They need a community where they feel seen.</p>
+
+        <ul class="pillars">
+          <li><h3>Her Mind<small>Mental health &amp; wellness</small></h3><p>Burnout, anxiety, grief, loneliness and imposter syndrome, held in anonymous confessions and “How are you really doing?” check-ins.</p></li>
+          <li><h3>Her Money<small>Financial literacy</small></h3><p>Budgeting, saving, side hustles, salary negotiation and freelancing, with female entrepreneurs, financial advisors and women in tech.</p></li>
+          <li><h3>Her Purpose<small>Career &amp; development</small></h3><p>A monthly Career Clinic where members submit CVs, cover letters and career questions for review. LinkedIn, leadership and networking.</p></li>
+          <li><h3>Her Voice<small>Confidence &amp; expression</small></h3><p>Personal branding, public speaking and content creation, built through writing prompts, storytelling challenges and opinion discussions.</p></li>
+          <li><h3>Her Community<small>Relationships &amp; sisterhood</small></h3><p>Friendships, family, dating and boundaries: building the support systems that make everything else possible.</p></li>
+        </ul>
+
+        <div class="sec-head">
+          <span class="caps">The weekly rhythm</span>
+          <div class="week">
+            <div class="day"><b>Check-In Monday</b><span>Poll: “How are you entering this week?”</span></div>
+            <div class="day"><b>Teach Tuesday</b><span>One practical lesson, under five minutes to read.</span></div>
+            <div class="day"><b>Wellness Wednesday</b><span>“What is one thing you've been carrying alone?”</span></div>
+            <div class="day"><b>Opportunity Thursday</b><span>Jobs, scholarships, internships, funding.</span></div>
+            <div class="day"><b>Sisterhood Friday</b><span>“What's the best advice another woman has ever given you?”</span></div>
+          </div>
+        </div>
+
+        <div class="letter">
+          <div style="display:grid;gap:16px;align-content:start">
+            <span class="caps">Signature activity</span>
+            <p class="script">Dear Younger Me</p>
+            <p>Once a month, members send in anonymous letters to their younger selves. I read selected entries aloud and the community discusses them. It's built on the three things that keep people in a community: stories, vulnerability and participation.</p>
+          </div>
+          <ul aria-label="Example letter openings">
+            <li>Dear 16-year-old me…</li>
+            <li>Dear unemployed me…</li>
+            <li>Dear heartbroken me…</li>
+            <li>Dear scared me…</li>
+          </ul>
+        </div>
+
+        <div class="sec-head">
+          <span class="caps">Quarterly flagship events</span>
+          <div class="quarters">
+            <div><small>Q1</small><b>The Modern Nigerian Woman</b></div>
+            <div><small>Q2</small><b>Healing &amp; Growth</b></div>
+            <div><small>Q3</small><b>Money, Career &amp; Ambition</b></div>
+            <div><small>Q4</small><b>Becoming HER</b></div>
+          </div>
+          <p style="color:var(--ink-2)">The plan covers a month-by-month theme calendar, weekly expert sessions, mentorship circles, skills workshops, quarterly Abuja meet-ups, school outreach and impact tracking. My role in it is community lead: <em>not the teacher, but the host, the connector, the conversation starter, and the safe person in the room.</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="block" id="services">
+    <div class="wrap sec">
+      <div class="margin"><span class="caps">Services &amp; rates</span></div>
+      <div class="sec-body">
+        <div class="sec-head">
+          <span class="caps">Rate card 2026 · Nigerian naira</span>
+          <h2>Strategy, execution, and <em>measurable impact.</em></h2>
+          <p class="fine">Prices are starting points. Final quotes depend on scope, complexity and timeline.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Service categories">
+          <button role="tab" id="tab-prog" aria-controls="panel-prog" aria-selected="true">Program management</button>
+          <button role="tab" id="tab-content" aria-controls="panel-content" aria-selected="false" tabindex="-1">Content writing</button>
+          <button role="tab" id="tab-more" aria-controls="panel-more" aria-selected="false" tabindex="-1">Research &amp; editing</button>
+        </div>
+
+        <div class="rate-panel" role="tabpanel" id="panel-prog" aria-labelledby="tab-prog">
+          <div class="rate-group"><h3>Program &amp; project planning</h3><dl>
+            <div><dt>Program design &amp; strategy</dt><i class="dots"></i><dd><small>from</small>₦150,000</dd></div>
+            <div><dt>Project planning &amp; execution framework</dt><i class="dots"></i><dd><small>from</small>₦100,000</dd></div>
+            <div><dt>Community program development</dt><i class="dots"></i><dd><small>from</small>₦120,000</dd></div>
+            <div><dt>Event program design &amp; coordination</dt><i class="dots"></i><dd><small>from</small>₦100,000</dd></div>
+          </dl></div>
+          <div class="rate-group"><h3>Community management</h3><dl>
+            <div><dt>WhatsApp community management, monthly</dt><i class="dots"></i><dd>₦150,000–300,000</dd></div>
+            <div><dt>Community growth strategy</dt><i class="dots"></i><dd><small>from</small>₦120,000</dd></div>
+            <div><dt>Member engagement plan</dt><i class="dots"></i><dd><small>from</small>₦80,000</dd></div>
+            <div><dt>Mentor/mentee program design</dt><i class="dots"></i><dd><small>from</small>₦100,000</dd></div>
+          </dl></div>
+          <div class="rate-group"><h3>Consulting</h3><dl>
+            <div><dt>Discovery call, 30 minutes</dt><i class="dots"></i><dd>₦25,000</dd></div>
+            <div><dt>Strategy session, 1 hour</dt><i class="dots"></i><dd>₦50,000</dd></div>
+            <div><dt>Program audit &amp; recommendations</dt><i class="dots"></i><dd><small>from</small>₦75,000</dd></div>
+          </dl></div>
+          <div class="rate-group"><h3>Project coordination</h3><dl>
+            <div><dt>One-time project coordination</dt><i class="dots"></i><dd><small>from</small>₦150,000</dd></div>
+            <div><dt>Multi-week project management</dt><i class="dots"></i><dd><small>from</small>₦250,000</dd></div>
+            <div><dt>Monthly program management retainer</dt><i class="dots"></i><dd>₦300,000–800,000</dd></div>
+          </dl></div>
+        </div>
+
+        <div class="rate-panel" role="tabpanel" id="panel-content" aria-labelledby="tab-content" hidden>
+          <div class="rate-group"><h3>Articles &amp; features</h3><dl>
+            <div><dt>Blog article, 800–1,200 words</dt><i class="dots"></i><dd>₦40,000</dd></div>
+            <div><dt>Long-form article, 1,500–2,500 words</dt><i class="dots"></i><dd>₦75,000–120,000</dd></div>
+            <div><dt>Thought leadership article</dt><i class="dots"></i><dd><small>from</small>₦100,000</dd></div>
+            <div><dt>NGO &amp; development sector articles</dt><i class="dots"></i><dd><small>from</small>₦80,000</dd></div>
+          </dl></div>
+          <div class="rate-group"><h3>Brand &amp; marketing content</h3><dl>
+            <div><dt>Website copy, per page</dt><i class="dots"></i><dd>₦35,000</dd></div>
+            <div><dt>About Us page</dt><i class="dots"></i><dd>₦50,000</dd></div>
+            <div><dt>Press release</dt><i class="dots"></i><dd>₦60,000</dd></div>
+            <div><dt>Brand story</dt><i class="dots"></i><dd>₦75,000</dd></div>
+          </dl></div>
+          <div class="rate-group"><h3>Social media content</h3><dl>
+            <div><dt>Monthly content calendar</dt><i class="dots"></i><dd><small>from</small>₦80,000</dd></div>
+            <div><dt>Social media captions, 30 posts</dt><i class="dots"></i><dd>₦100,000</dd></div>
+            <div><dt>Content strategy document</dt><i class="dots"></i><dd>₦150,000</dd></div>
+            <div><dt>Campaign messaging framework</dt><i class="dots"></i><dd><small>from</small>₦120,000</dd></div>
+          </dl></div>
+          <div class="rate-group"><h3>Event &amp; community content</h3><dl>
+            <div><dt>Event concept notes</dt><i class="dots"></i><dd>₦50,000</dd></div>
+            <div><dt>Event scripts &amp; moderation guides</dt><i class="dots"></i><dd>₦40,000</dd></div>
+            <div><dt>Discussion guides &amp; community resources</dt><i class="dots"></i><dd>₦40,000–80,000</dd></div>
+          </dl></div>
+        </div>
+
+        <div class="rate-panel" role="tabpanel" id="panel-more" aria-labelledby="tab-more" hidden>
+          <div class="rate-group"><h3>Research</h3><dl>
+            <div><dt>Research &amp; insight report</dt><i class="dots"></i><dd><small>from</small>₦75,000</dd></div>
+            <div><dt>Audience research</dt><i class="dots"></i><dd><small>from</small>₦100,000</dd></div>
+          </dl></div>
+          <div class="rate-group"><h3>Editing</h3><dl>
+            <div><dt>Content editing &amp; proofreading</dt><i class="dots"></i><dd><small>from</small>₦20,000</dd></div>
+          </dl></div>
+        </div>
+
+        <div class="terms" aria-label="Payment terms">
+          <div><b>70%</b><span>upfront, before work begins</span></div>
+          <div><b>30%</b><span>balance on completion</span></div>
+          <div><b>2</b><span>rounds of revisions included</span></div>
+          <div><b>+30%</b><span>rush fee for 24–48 hour turnaround</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="wrap" style="display:grid;gap:22px;justify-items:center">
+      <span class="caps">Signature statement</span>
+      <p class="big">Good programs change lives. Good stories move people. Great organizations know how to do both.</p>
+      <p class="script">I help them make that happen.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="inner">
+        <span class="caps">Work with me</span>
+        <h2>Let's find the story, <em>then build the program around it.</em></h2>
+        <p>Most projects start with a 30-minute discovery call (₦25,000). We'll talk about your audience, your goals and what success looks like, and I'll come back with a clear scope and quote.</p>
+        <dl class="lines">
+          <div><dt>Email</dt><dd class="todo">[ email address ]</dd></div>
+          <div><dt>Instagram · LinkedIn</dt><dd class="todo">[ social handle ]</dd></div>
+          <div><dt>Based in</dt><dd>Abuja, Nigeria</dd></div>
+        </dl>
+      </div>
+      <figure class="arch">
+        <img src="assets/portrait.jpg" alt="Stephanie Osaro in a red gown on the red carpet at a Blackbones Theatre Kompany production." loading="lazy" width="825" height="1100">
+        <figcaption>At <i>Rhythm in Motion</i>, Blackbones Theatre Kompany.</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="logo-card" src="assets/logo.jpg" alt="Stephanie Osaro logo: SO monogram with a gold pen nib." loading="lazy" width="1254" height="1254">
+    <p>© 2026 Stephanie Osaro · Program Manager | Content Strategist | Writer</p>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <button class="close" id="lb-close">Close</button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<script>
+  // Rate-card tabs
+  (function () {
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    function select(tab) {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(t));
+      t.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+        select(next); next.focus();
+      });
+    });
+  })();
+
+  // Gallery lightbox
+  (function () {
+    const dlg = document.getElementById('lightbox');
+    const img = document.getElementById('lb-img');
+    const cap = document.getElementById('lb-cap');
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    document.querySelectorAll('#gallery button').forEach(b => {
+      b.addEventListener('click', () => {
+        const src = b.querySelector('img');
+        img.src = src.src; img.alt = src.alt; cap.textContent = b.dataset.cap || '';
+        dlg.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  })();
+</script>
+
+</body>
+</html>
