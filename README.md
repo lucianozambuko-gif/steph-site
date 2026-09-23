@@ -25,7 +25,8 @@ The site is static, so it runs on GitHub Pages (Settings → Pages → deploy fr
 | --- | --- | --- |
 | Email | `stephaineosaro@gmail.com` | Contact list, footer, enquiry form (`TO` in the script) |
 | Phone / WhatsApp | `+234 816 110 7337` (`2348161107337` in links) | Contact list, footer, "Book a discovery call" |
-| Instagram / LinkedIn | `stephanieosaro`: **placeholder, replace with real handles** | Contact list, footer |
+| Instagram | `instagram.com/stephanieosaro` | Contact list, footer |
+| LinkedIn | `linkedin.com/in/stephanie-okoh-a66867305` | Contact list, footer |
 
 ## Palette
 
