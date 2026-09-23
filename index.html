@@ -386,6 +386,18 @@
   footer .wrap { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
   footer .logo-card { width: 92px; border-radius: 4px; }
   footer p { font-size: 14px; color: var(--muted); }
+
+  /* Phones and small tablets: centre the stand-alone photos */
+  @media (max-width: 860px) {
+    .hero .arch, .about .arch, .contact .arch { width: 100%; justify-self: center; margin-inline: auto; }
+    .arch figcaption { text-align: center; padding-left: 0; }
+    .hero .arch::before { inset: 5% -4% -3% 4%; }
+    .crew img { margin-inline: auto; }
+  }
+  @media (max-width: 560px) {
+    .roles { gap: 6px 18px; }
+    .roles span + span::before { content: none; }
+  }
 </style>
 </head>
 <body>
