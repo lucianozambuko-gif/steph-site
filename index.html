@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Stephanie Osaro</title>
-<link rel="icon" href="assets/logo.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 <meta name="description" content="Stephanie Osaro — program manager, community builder, content strategist and writer based in Abuja.">
 <meta name="theme-color" content="#4E0F16">
 <meta property="og:type" content="website">
@@ -94,14 +95,13 @@
   }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .mono { font-family: var(--display); font-size: 30px; line-height: 1; letter-spacing: -.12em; position: relative; padding-right: 6px; }
-  .mono i { font-style: normal; position: relative; left: -2px; top: 4px; }
-  .mono::after { content: ""; position: absolute; left: 4px; right: -4px; bottom: 5px; height: 1.5px; background: var(--accent); transform: rotate(-14deg); border-radius: 2px; }
+  .brand-mark { height: 44px; width: 49px; }
   .brand-name { font-family: var(--display); font-size: 13px; letter-spacing: .24em; text-transform: uppercase; }
   .nav ul { display: flex; gap: clamp(14px, 2.4vw, 32px); list-style: none; margin: 0; padding: 0; }
   .nav ul a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--ink-2); }
   .nav ul a:hover { color: var(--accent-text); }
-  @media (max-width: 720px) { .brand-name, .nav li.opt { display: none; } }
+  @media (max-width: 1020px) { .nav li.opt { display: none; } }
+  @media (max-width: 720px) { .brand-name { display: none; } }
 
   /* ---------- hero ---------- */
   .hero { padding-block: clamp(40px, 7vw, 88px) clamp(48px, 7vw, 96px); position: relative; overflow-x: clip; }
@@ -318,6 +318,32 @@
   @media (max-width: 860px) { .hosting .arch { margin-inline: auto; width: 100%; } }
   @media (max-width: 520px) { .cue-line { grid-template-columns: 1fr; gap: 4px; } }
 
+  /* writing */
+  .inline-link { color: var(--accent); font-weight: 600; }
+  .articles { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--burgundy); }
+  .articles li { border-bottom: 1px solid var(--line); }
+  .articles a { display: grid; gap: 10px; padding: 26px 0; text-decoration: none; max-width: 820px; }
+  .art-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  .art-meta .tag { background: var(--burgundy); color: var(--on-burgundy); border-radius: 999px; padding: 3px 11px; letter-spacing: .1em; font-size: 11px; }
+  .articles h3 { font-size: clamp(22px, 2.6vw, 30px); color: var(--burgundy); transition: color .2s; }
+  .art-excerpt { color: var(--ink-2); max-width: 44em; }
+  .art-read { font-size: 14.5px; font-weight: 600; color: var(--accent); }
+  .articles a:hover h3 { color: var(--accent); }
+  .articles a:hover .art-read { text-decoration: underline; }
+
+  /* floating WhatsApp button */
+  .wa-float {
+    position: fixed; z-index: 30;
+    right: calc(18px + env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    width: 56px; height: 56px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: #25D366; color: #fff; border: 2px solid var(--on-burgundy);
+    box-shadow: 0 10px 24px -8px rgba(58,12,18,.55);
+    transition: transform .2s ease;
+  }
+  .wa-float svg { width: 30px; height: 30px; }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) { .wa-float:hover { transform: scale(1.07); } }
+
   /* experience */
   .xp { display: grid; grid-template-columns: 1fr 280px; gap: clamp(28px, 5vw, 64px); align-items: start; }
   .xp-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--burgundy); }
@@ -432,7 +458,7 @@
 
   footer { padding-block: 40px; }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
-  footer .logo-card { width: 92px; border-radius: 4px; }
+  footer .logo-card { width: 84px; }
   footer p { font-size: 14px; color: var(--muted); }
 
   /* Phones and small tablets: centre the stand-alone photos */
@@ -453,12 +479,13 @@
 <nav class="nav" aria-label="Main">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Stephanie Osaro — home">
-      <span class="mono" aria-hidden="true">S<i>O</i></span>
+      <img class="brand-mark" src="assets/logo-mark.png" alt="" width="498" height="447">
       <span class="brand-name">Stephanie Osaro</span>
     </a>
     <ul>
       <li><a href="#work">Work</a></li>
       <li class="opt"><a href="#community">Community</a></li>
+      <li class="opt"><a href="#writing">Writing</a></li>
       <li class="opt"><a href="#experience">Experience</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -757,6 +784,46 @@
     </div>
   </section>
 
+  <!-- WRITING -->
+  <section class="block" id="writing">
+    <div class="wrap sec">
+      <div class="margin"><span class="caps">Writing</span></div>
+      <div class="sec-body">
+        <div class="sec-head">
+          <span class="caps">Published articles · on X</span>
+          <h2>Culture, told <em>with a point of view.</em></h2>
+          <p class="lede">Essays on Nigerian culture, music and mental health, published on X as <a class="inline-link" href="https://x.com/osaro_stephanie" target="_blank" rel="noopener">@osaro_stephanie</a>.</p>
+        </div>
+        <ol class="articles">
+          <li>
+            <a href="https://x.com/osaro_stephanie/status/2092347811643773213" target="_blank" rel="noopener">
+              <p class="art-meta"><time datetime="2026-08-25">25 August 2026</time><span class="tag">Best rated</span></p>
+              <h3>The Headies Nominations Are Out. Nigerians Have Resumed Their Side Hustle as Award Auditors.</h3>
+              <p class="art-excerpt">There are three things Nigerians take very seriously: football, politics, and explaining why their favourite artiste was robbed at an award show.</p>
+              <span class="art-read">Read on X <span aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/osaro_stephanie/status/2044111510352318960" target="_blank" rel="noopener">
+              <p class="art-meta"><time datetime="2026-04-14">14 April 2026</time></p>
+              <h3>How I Wear My Mental Illness.</h3>
+              <p class="art-excerpt">Mental illness is one of those things that travels across borders but somehow changes accent when it lands.</p>
+              <span class="art-read">Read on X <span aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/osaro_stephanie/status/2043149840712859663" target="_blank" rel="noopener">
+              <p class="art-meta"><time datetime="2026-04-12">12 April 2026</time></p>
+              <h3>In Nigeria, rebellion comes with terms and conditions.</h3>
+              <p class="art-excerpt">Teenage rebellion is a universal language. It doesn't matter where you're from, at some point between “Mummy, see my drawing” and “Please respect my privacy,” something shifts.</p>
+              <span class="art-read">Read on X <span aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
   <!-- EXPERIENCE -->
   <section class="block" id="experience">
     <div class="wrap sec">
@@ -977,6 +1044,7 @@
           <div><dt>Phone · WhatsApp</dt><dd><a href="https://wa.me/2348161107337" target="_blank" rel="noopener">+234 816 110 7337</a></dd></div>
           <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/stephanieosaro/" target="_blank" rel="noopener">@stephanieosaro</a></dd></div>
           <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/stephanie-okoh-a66867305/" target="_blank" rel="noopener">in/stephanie-okoh</a></dd></div>
+          <div><dt>X (Twitter)</dt><dd><a href="https://x.com/osaro_stephanie" target="_blank" rel="noopener">@osaro_stephanie</a></dd></div>
           <div><dt>Based in</dt><dd>Abuja, Nigeria · working remotely too</dd></div>
           <div><dt>Replies</dt><dd>Within 48 hours, Mon–Fri</dd></div>
         </dl>
@@ -1032,16 +1100,21 @@
 
 <footer>
   <div class="wrap">
-    <img class="logo-card" src="assets/logo.jpg" alt="Stephanie Osaro logo: SO monogram with a gold pen nib." loading="lazy" width="1254" height="1254">
+    <img class="logo-card" src="assets/logo-mark.png" alt="Stephanie Osaro logo: SO monogram with a crown and a gold pen nib." loading="lazy" width="498" height="447">
     <ul class="foot-links">
       <li><a href="mailto:stephaineosaro@gmail.com">Email</a></li>
       <li><a href="https://wa.me/2348161107337" target="_blank" rel="noopener">WhatsApp</a></li>
       <li><a href="https://www.instagram.com/stephanieosaro/" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="https://www.linkedin.com/in/stephanie-okoh-a66867305/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/osaro_stephanie" target="_blank" rel="noopener">X</a></li>
     </ul>
     <p>© 2026 Stephanie Osaro · Programs Manager | Content Strategist / Writer</p>
   </div>
 </footer>
+
+<a class="wa-float" href="https://wa.me/2348161107337?text=Hi%20Stephanie%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20chat." target="_blank" rel="noopener" aria-label="Chat with Stephanie on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
   <button class="close" id="lb-close">Close</button>

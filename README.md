@@ -27,6 +27,11 @@ The site is static, so it runs on GitHub Pages (Settings → Pages → deploy fr
 | Phone / WhatsApp | `+234 816 110 7337` (`2348161107337` in links) | Contact list, footer, "Book a discovery call" |
 | Instagram | `instagram.com/stephanieosaro` | Contact list, footer |
 | LinkedIn | `linkedin.com/in/stephanie-okoh-a66867305` | Contact list, footer |
+| X (Twitter) | `x.com/osaro_stephanie` | Contact list, footer, Writing section, CV |
+
+## Logo
+
+`assets/logo-mark.png` (transparent crop) and `assets/favicon.png` (square, on the nude page colour) are exported from the client's `Mianlogo.png`. The mark is used in the nav, footer, browser tab and CV header.
 
 ## CV
 
