@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Stephanie Okoh — CV</title>
+<!-- Source for assets/Stephanie-Okoh-CV.pdf. Edit here, then regenerate the PDF (see README). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Hanken+Grotesk:wght@400;500;600&family=Pinyon+Script&display=swap">
+<style>
+  :root {
+    --paper: #EFE6DC;
+    --blush: #EBD6CF;
+    --blush-2: #E2C0BD;
+    --ink: #2B1216;
+    --ink-2: #54383B;
+    --muted: #7A5F5F;
+    --line: #D9C6B8;
+    --accent: #8C3341;
+    --burgundy: #4E0F16;
+    --on-burgundy: #F4E9E1;
+    --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+    --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+    --script: "Pinyon Script", "Snell Roundhand", cursive;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; padding: 0; background: #d9d0c6; }
+  body { font: 400 11.6px/1.52 var(--body); color: var(--ink); }
+  p, h1, h2, h3, ul { margin: 0; padding: 0; }
+
+  .page { width: 210mm; height: 297mm; background: var(--paper); overflow: hidden; margin: 0 auto; break-after: page; }
+  .page:last-child { break-after: auto; }
+  @media screen { .page { margin: 16px auto; box-shadow: 0 6px 30px rgba(58,12,18,.25); } }
+
+  /* header band */
+  .head { background: var(--burgundy); color: var(--on-burgundy); padding: 56px 60px 34px; position: relative; }
+  .head .title { font-family: var(--display); font-size: 9.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--blush-2); }
+  .head .title i { font-style: normal; margin: 0 .7em; opacity: .7; }
+  .head h1 { font-family: var(--display); font-weight: 400; font-size: 46px; line-height: 1.1; letter-spacing: -.005em; margin-top: 8px; }
+  .head .tag { font-family: var(--script); font-size: 22px; line-height: 1; color: var(--blush-2); margin-top: 6px; }
+  .head .mono { position: absolute; right: 60px; top: 46px; font-family: var(--display); font-size: 46px; line-height: 1; letter-spacing: -.1em; color: var(--blush-2); }
+  .head .mono i { font-style: italic; }
+  .contacts { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(244,233,225,.22); display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 11.2px; }
+  .contacts b { font-weight: 600; font-size: 8.6px; letter-spacing: .16em; text-transform: uppercase; color: var(--blush-2); margin-right: 6px; }
+
+  /* body */
+  .cols { display: grid; grid-template-columns: 431px 208px; gap: 34px; padding: 30px 60px 0; }
+  .page.two .cols { padding-top: 44px; }
+  h2 { font-family: var(--display); font-weight: 400; font-size: 21px; color: var(--burgundy); padding-bottom: 7px; border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+  section + section { margin-top: 22px; }
+  .lead { font-family: var(--display); font-size: 15.4px; line-height: 1.36; color: var(--ink); margin-bottom: 8px; }
+
+  .job + .job { margin-top: 15px; }
+  .job h3 { font-family: var(--display); font-weight: 400; font-size: 17px; line-height: 1.2; color: var(--ink); }
+  .job .org { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-top: 3px; }
+  .job .org b { font-weight: 600; font-size: 11.4px; color: var(--ink-2); }
+  .job .org span { font-size: 10.6px; color: var(--muted); white-space: nowrap; }
+  .job ul { list-style: none; margin-top: 7px; display: grid; gap: 3px; }
+  .job li { padding-left: 15px; position: relative; }
+  .job li::before { content: ""; position: absolute; left: 1px; top: .62em; width: 4.5px; height: 4.5px; border-radius: 50%; background: var(--accent); }
+  .job .note { font-size: 10.6px; color: var(--ink-2); margin-top: 6px; }
+  .job .note em { font-family: var(--display); font-style: italic; }
+  ul.cont { list-style: none; display: grid; gap: 3px; }
+  ul.cont li { padding-left: 15px; position: relative; }
+  ul.cont li::before { content: ""; position: absolute; left: 1px; top: .62em; width: 4.5px; height: 4.5px; border-radius: 50%; background: var(--accent); }
+
+  /* sidebar */
+  .card { background: var(--blush); border-radius: 4px; padding: 20px 17px 16px; }
+  .card h2 { font-size: 18px; border-bottom-color: var(--blush-2); margin-bottom: 4px; }
+  .card h3 { font-family: var(--display); font-weight: 400; font-size: 14px; color: var(--burgundy); margin-top: 10px; }
+  .card p { font-size: 11.2px; line-height: 1.5; padding-bottom: 8px; border-bottom: 1px solid rgba(226,192,189,.6); }
+  .card p:last-child { border-bottom: 0; padding-bottom: 0; }
+  .side h2 { font-size: 18px; margin-bottom: 6px; }
+  .side section + section, .side .card + section { margin-top: 24px; }
+  .skills { list-style: none; font-size: 11.2px; }
+  .skills li { padding: 6px 0; border-bottom: 1px dashed var(--line); }
+  .skills li:last-child { border-bottom: 0; }
+  .side p { font-size: 11.2px; }
+  .side .edu { font-family: var(--display); font-size: 14px; color: var(--burgundy); margin-top: 8px; }
+  .quote { margin-top: 24px; border-left: 2px solid var(--accent); padding: 2px 0 2px 13px; font-family: var(--display); font-style: italic; font-size: 15px; line-height: 1.4; color: var(--accent); }
+  .side .quote + section { margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="head">
+    <p class="title">Programs Manager <i>|</i> Content Strategist / Writer</p>
+    <h1>Stephanie Okoh</h1>
+    <p class="tag">Stories at the core.</p>
+    <span class="mono" aria-hidden="true">S<i>O</i></span>
+    <div class="contacts">
+      <span><b>Phone · WhatsApp</b>+234 816 110 7337</span>
+      <span><b>Email</b>stephaineosaro@gmail.com</span>
+      <span><b>Based in</b>Abuja, Nigeria · remote</span>
+      <span><b>Portfolio · Stephanie Osaro</b>lucianozambuko-gif.github.io/steph-site</span>
+      <span><b>LinkedIn</b>in/stephanie-okoh</span>
+      <span><b>Instagram</b>@stephanieosaro</span>
+    </div>
+  </header>
+
+  <div class="cols">
+    <main>
+      <section>
+        <h2>Profile</h2>
+        <p class="lead">A storyteller at heart and a programs manager by practice. I turn ideas into programs people show up for, conversations they remember and stories they actually engage with.</p>
+        <p>My work sits where storytelling meets strategy: I design and coordinate programs and communities, write the concept notes, scripts and run-of-show that hold them together, and host and moderate the room on the night. I work with brands, organizations, NGOs and communities, and I'm drawn to literature, mental-health awareness and community building.</p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="job">
+          <h3>Assistant Producer &amp; Script Writer</h3>
+          <p class="org"><b>Literature &amp; Coffee NG · Abuja PR Network</b><span>2026 – Present</span></p>
+          <ul>
+            <li>Write the concept notes and conversation scripts for a café-hopping conversation series for readers, creatives, students and young professionals, first gathering 17 July 2026.</li>
+            <li>Script each three-hour event flow, from arrival and icebreakers through three conversation rounds to closing reflections, and host and moderate from the floor.</li>
+            <li>Build the toolkit behind each edition: agendas, host opening remarks, discussion guides, debate prompts, table prompt cards, interactive polls, and a media release and NDPA 2023 consent form.</li>
+            <li>Work with the crew across production, creative direction, media and logistics; each edition moves to a new café or creative space, spotlighting a local business.</li>
+          </ul>
+          <p class="note">Editions include <em>Where Stories Brew and Conversations Flow, Reality TV, Real Culture? BBNaija &amp; Love Island</em> and <em>From Page to Playlist: Are Musicians the New Poets?</em></p>
+        </div>
+        <div class="job">
+          <h3>Community Lead &amp; Programs Manager</h3>
+          <p class="org"><b>SAFE SPACE · Women's Mentorship &amp; Community Development Initiative</b><span>Sep 2026 – Present</span></p>
+          <ul>
+            <li>Designed the community model and management plan for a WhatsApp-first network where women and girls learn, connect, access mentorship and get practical support.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <aside class="side">
+      <div class="card">
+        <h2>What I do</h2>
+        <h3>Programs</h3>
+        <p>Program design &amp; strategy, project planning, coordination and monthly program management</p>
+        <h3>Scripts</h3>
+        <p>Concept notes, event scripts, run-of-show, moderation and discussion guides</p>
+        <h3>Communities</h3>
+        <p>WhatsApp community management, engagement plans, mentor/mentee programs</p>
+        <h3>Stories</h3>
+        <p>Articles, thought leadership, brand and website copy, campaign messaging</p>
+      </div>
+      <section>
+        <h2>Core skills</h2>
+        <ul class="skills">
+          <li>Program &amp; project management</li>
+          <li>Scriptwriting &amp; storytelling</li>
+          <li>Event hosting &amp; moderation</li>
+          <li>Community building &amp; engagement</li>
+          <li>Stakeholder engagement &amp; PR</li>
+          <li>Content strategy &amp; copywriting</li>
+          <li>Social media management</li>
+          <li>Research, editing &amp; proofreading</li>
+          <li>Volunteer coordination</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<div class="page two">
+  <div class="cols">
+    <main>
+      <div class="job">
+        <ul class="cont">
+          <li>Built the program around five pillars (Her Mind, Her Money, Her Purpose, Her Voice, Her Community), a weekly content rhythm and a month-by-month theme calendar.</li>
+          <li>Develop mentorship circles and mentor/mentee matching, plus onboarding materials, registration forms and participation guidelines.</li>
+          <li>Created the signature Dear Younger Me letters activity and four quarterly flagship events; track participation, engagement and retention.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Event Host &amp; Content Writer</h3>
+        <p class="org"><b>Abuja PR</b><span>June – Present</span></p>
+        <ul>
+          <li>Host and red-carpet presenter for corporate, social and media events, interviewing guests, speakers and stakeholders.</li>
+          <li>Write articles, event content and communication materials for digital platforms to grow engagement and brand visibility.</li>
+          <li>Support event coordination, guest management and PR, working with creative and media teams on coverage and storytelling.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Communications &amp; Outreach Volunteer</h3>
+        <p class="org"><b>IDWF Initiative</b><span>June 2026 – Present</span></p>
+        <ul>
+          <li>Create content and stakeholder communication materials for campaigns, advocacy and community initiatives.</li>
+          <li>Support fundraising campaigns and donation drives for women and girls, and promote activities on social media and in the community.</li>
+          <li>Contribute to project planning, event coordination, documentation and reporting.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Writer &amp; Social Media Manager</h3>
+        <p class="org"><b>WuGeng Publishing</b><span>May 2025 – Apr 2026</span></p>
+        <ul>
+          <li>Developed trending, socially conscious article topics and managed their promotion on social media to grow engagement.</li>
+          <li>Edited and reviewed submissions from other writers to maintain quality standards.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Personal Coordinator</h3>
+        <p class="org"><b>Eventsrail</b><span>2023 – 2024</span></p>
+        <ul>
+          <li>Managed guest registration, identity tagging, accountability and seating arrangements for smooth event delivery.</li>
+        </ul>
+      </div>
+    </main>
+
+    <aside class="side">
+      <section>
+        <h2>Tools</h2>
+        <p>Microsoft 365 · Google Workspace · Canva</p>
+      </section>
+      <section>
+        <h2>Education</h2>
+        <p class="edu">B.Sc. Public Administration</p>
+        <p>University of Abuja · 2019 – 2023</p>
+      </section>
+      <p class="quote">Good programs change lives.<br>Good stories move people.</p>
+      <section>
+        <h2>Referees</h2>
+        <p>Available on request</p>
+      </section>
+    </aside>
+  </div>
+</div>
+
+</body>
+</html>

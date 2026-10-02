@@ -28,6 +28,21 @@ The site is static, so it runs on GitHub Pages (Settings → Pages → deploy fr
 | Instagram | `instagram.com/stephanieosaro` | Contact list, footer |
 | LinkedIn | `linkedin.com/in/stephanie-okoh-a66867305` | Contact list, footer |
 
+## CV
+
+`cv.html` is the source for the downloadable CV (`assets/Stephanie-Okoh-CV.pdf`). It's laid out as two fixed A4 pages, so check both pages after editing in case text overflows.
+
+Regenerate the PDF with headless Edge (PowerShell, from this folder):
+
+```powershell
+$edge = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+$url  = "file:///" + ((Get-Location).Path -replace '\\','/' -replace ' ','%20') + "/cv.html"
+$pdf  = Join-Path (Get-Location).Path "assets\Stephanie-Okoh-CV.pdf"
+Start-Process $edge -ArgumentList '--headless=new','--no-pdf-header-footer','--virtual-time-budget=8000',"--print-to-pdf=`"$pdf`"",$url -Wait
+```
+
+It needs an internet connection, because the fonts load from Google Fonts.
+
 ## Palette
 
 Burgundy `#4E0F16`, nude/off-white `#EFE6DC`, blush `#EBD6CF` / `#E2C0BD`, rose accent `#8C3341`. All defined as CSS variables at the top of `index.html`.
