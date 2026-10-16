@@ -985,24 +985,7 @@
           </div>
         </div>
 
-        <div class="tabs" role="tablist" aria-label="Service categories">
-          <button role="tab" id="tab-strategy" aria-controls="panel-strategy" aria-selected="true">Content strategy</button>
-          <button role="tab" id="tab-content" aria-controls="panel-content" aria-selected="false" tabindex="-1">Writing &amp; editing</button>
-        </div>
-
-        <div class="rate-panel" role="tabpanel" id="panel-strategy" aria-labelledby="tab-strategy">
-          <div class="rate-group"><h3>Strategy &amp; planning</h3><dl>
-            <div><dt>Content strategy document</dt><i class="dots"></i><dd>₦150,000</dd></div>
-            <div><dt>Campaign messaging framework</dt><i class="dots"></i><dd><small>from</small>₦120,000</dd></div>
-            <div><dt>Monthly content calendar</dt><i class="dots"></i><dd><small>from</small>₦80,000</dd></div>
-          </dl></div>
-          <div class="rate-group"><h3>Research &amp; insight</h3><dl>
-            <div><dt>Audience research</dt><i class="dots"></i><dd><small>from</small>₦100,000</dd></div>
-            <div><dt>Research &amp; insight report</dt><i class="dots"></i><dd><small>from</small>₦75,000</dd></div>
-          </dl></div>
-        </div>
-
-        <div class="rate-panel" role="tabpanel" id="panel-content" aria-labelledby="tab-content" hidden>
+        <div class="rate-panel" id="panel-content">
           <div class="rate-group"><h3>Articles &amp; features</h3><dl>
             <div><dt>Blog article, 800–1,200 words</dt><i class="dots"></i><dd>₦40,000</dd></div>
             <div><dt>Long-form article, 1,500–2,500 words</dt><i class="dots"></i><dd>₦75,000–120,000</dd></div>
@@ -1142,27 +1125,6 @@
 </dialog>
 
 <script>
-  // Rate-card tabs
-  (function () {
-    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-    function select(tab) {
-      tabs.forEach(t => {
-        const on = t === tab;
-        t.setAttribute('aria-selected', on);
-        t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-      });
-    }
-    tabs.forEach((t, i) => {
-      t.addEventListener('click', () => select(t));
-      t.addEventListener('keydown', e => {
-        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-        const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
-        select(next); next.focus();
-      });
-    });
-  })();
-
   // Enquiry form: validates, then opens the visitor's email app with the message filled in
   (function () {
     const form = document.getElementById('enquiry');
