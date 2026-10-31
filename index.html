@@ -17,6 +17,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Hanken+Grotesk:wght@400;500;600&family=Pinyon+Script&display=swap">
+<script>
+  /* Motion is opt-in: hidden start states only apply under .anim, and it is removed if the main script never finishes. */
+  (function () {
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    var root = document.documentElement;
+    root.classList.add('anim');
+    setTimeout(function () { if (!window.__animReady) root.classList.remove('anim'); }, 3000);
+  })();
+</script>
 <style>
   /* Palette: burgundy, nude/off-white and blush pink (from the client's colour-scheme reference).
      Deliberately single-theme so every viewer sees the brand palette. */
@@ -470,6 +480,85 @@
     .roles { gap: 6px 18px; }
     .roles span + span::before { content: none; }
   }
+  /* ---------- editorial details (always on) ---------- */
+  .about .text p:first-child::first-letter { font-size: 3.1em; float: left; line-height: .82; padding: .06em .1em 0 0; color: var(--burgundy); }
+  .schedule { position: relative; border-left: 0; }
+  .schedule::before, .xp-list::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--accent); transform-origin: top; transform: scaleY(var(--p, 1)); }
+  .xp-list { position: relative; padding-left: 24px; }
+  .xp-list > li { position: relative; }
+  .xp-list > li::before { content: ""; position: absolute; left: -28.5px; top: 31px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 1.5px solid var(--accent); transition: background .3s; }
+  .uline { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat; transition: background-size .45s ease; }
+  .articles a:hover .uline { background-size: 100% 1.5px; }
+  .art-meta .tag { transform: rotate(-3deg); }
+  @media (min-width: 901px) {
+    .articles { display: grid; grid-template-columns: 1.45fr 1fr; column-gap: 40px; }
+    .articles > li:first-child { grid-row: span 2; border-right: 1px solid var(--line); padding-right: 40px; border-bottom: 0; }
+    .articles > li:first-child h3 { font-size: clamp(32px, 3.4vw, 44px); line-height: 1.1; }
+    .articles > li:first-child .art-excerpt { font-size: 18px; }
+    .articles > li:not(:first-child) h3 { font-size: 23px; }
+    .articles > li:not(:first-child) .art-excerpt { font-size: 15.5px; }
+  }
+  .flourish { display: block; width: min(240px, 60%); height: 24px; margin-inline: auto; overflow: visible; }
+  .flourish path { fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-linecap: round; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  /* progress bar and ticker only exist when motion is on */
+  .progress, .ticker { display: none; }
+  .anim .progress { display: block; position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 40; overflow: hidden; pointer-events: none; }
+  .anim .progress i { position: absolute; inset: 0; background: var(--burgundy); transform: translateX(calc((var(--s, 0) - 1) * 100%)); }
+  .anim .ticker { display: block; overflow: hidden; background: var(--burgundy); color: var(--on-burgundy); padding-block: 11px; }
+  .ticker-track { display: flex; width: max-content; animation: tick 70s linear infinite; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .ticker-group { display: flex; flex: none; }
+  .ticker-group span { font-family: var(--display); font-style: italic; font-size: 16px; white-space: nowrap; display: inline-flex; align-items: center; }
+  .ticker-group span::after { content: ""; width: 6px; height: 6px; margin-inline: 26px; background: var(--blush-2); transform: rotate(45deg); }
+  @keyframes tick { to { transform: translateX(-50%); } }
+
+  /* ---------- start states (screen only, so printing always shows everything) ---------- */
+  @media screen {
+    .anim .rv { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i, 0) * 70ms); }
+    .anim .rv.in { opacity: 1; transform: none; }
+    .anim .xp-list > li.rv:not(.in) { transform: translateX(-24px); }
+
+    .anim .wr { clip-path: inset(-25% 102% -25% -6%); transition: clip-path 1.3s cubic-bezier(.5,.1,.3,1); transition-delay: var(--dl, 0ms); }
+    .anim .wr.in { clip-path: inset(-25% -6% -25% -6%); }
+    .anim h1 em { display: inline-block; }
+
+    .anim h1 .w { display: inline-block; animation: rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--dl, 0ms); }
+    @keyframes rise { from { opacity: 0; transform: translateY(.45em); } to { opacity: 1; transform: none; } }
+
+    .anim .flyers img { transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+    .anim .flyers:not(.in) img:nth-child(1) { transform: translate(105%, 8%); }
+    .anim .flyers:not(.in) img:nth-child(2) { transform: translateY(8%); }
+    .anim .flyers:not(.in) img:nth-child(3) { transform: translate(-105%, 8%); }
+
+    .anim .schedule > li > * { opacity: .45; transition: opacity .5s ease; }
+    .anim .schedule > li.lit > * { opacity: 1; }
+    .anim .schedule > li::before { transition: background .3s, transform .3s; }
+    .anim .schedule > li.lit::before { background: var(--accent); transform: scale(1.25); }
+    .anim .xp-list > li:not(.lit)::before { background: var(--paper); }
+
+    .anim .quote-big .qw { opacity: .22; transition: opacity .35s ease; }
+    .anim .quote-big .qw.on { opacity: 1; }
+
+    .anim .cue header .caps::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 9px; border-radius: 50%; background: #B3263A; vertical-align: .08em; }
+    .anim .cue.in header .caps::before { animation: blink 1.4s ease-in-out infinite; }
+    @keyframes blink { 50% { opacity: .2; } }
+
+    .anim .articles > li.in .tag { animation: stamp .5s .45s cubic-bezier(.3,1.5,.5,1) both; }
+    @keyframes stamp { from { opacity: 0; transform: rotate(-3deg) scale(1.9); } to { opacity: 1; transform: rotate(-3deg) scale(1); } }
+
+    .anim .gallery button img, .anim .gallery button .cap { clip-path: inset(0 0 100% 0); transition: clip-path 1s cubic-bezier(.5,.1,.3,1), transform .6s ease, filter 1.6s ease; transition-delay: calc(var(--i, 0) * 90ms), 0ms, 0ms; }
+    .anim .gallery button.in img, .anim .gallery button.in .cap { clip-path: inset(0); }
+    .anim .gallery button:not(.in) img { filter: sepia(.7) brightness(.55); transform: scale(1.1); }
+
+    .anim .statement .big .ph { opacity: .12; transition: opacity 1s ease; transition-delay: calc(var(--i, 0) * 550ms); }
+    .anim .statement .big.in .ph { opacity: 1; }
+    .anim .flourish path { stroke-dasharray: 400; stroke-dashoffset: 400; transition: stroke-dashoffset 1.6s ease 2.6s; }
+    .anim .flourish.in path { stroke-dashoffset: 0; }
+
+    @media (min-width: 861px) { .anim .hero .arch img { transform: translateY(var(--py, 0px)); } }
+  }
 </style>
 </head>
 <body>
@@ -514,6 +603,8 @@
     <path class="nib" d="M1410 64 l 10 -22 l 8 4 l -10 22 z"/>
   </svg>
 </header>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><div class="ticker-group"><span>Stories at the core.</span><span>Literature &amp; Coffee NG</span><span>YEEP '26 Summit</span><span>Waves Multimedia Studio</span><span>Fardo &amp; Friends: The Reveal!</span><span>How I Wear My Mental Illness.</span><span>In Nigeria, rebellion comes with terms and conditions.</span><span>The Headies Nominations Are Out. Nigerians Have Resumed Their Side Hustle as Award Auditors.</span></div><div class="ticker-group"><span>Stories at the core.</span><span>Literature &amp; Coffee NG</span><span>YEEP '26 Summit</span><span>Waves Multimedia Studio</span><span>Fardo &amp; Friends: The Reveal!</span><span>How I Wear My Mental Illness.</span><span>In Nigeria, rebellion comes with terms and conditions.</span><span>The Headies Nominations Are Out. Nigerians Have Resumed Their Side Hustle as Award Auditors.</span></div></div></div>
 
 <main>
   <!-- ABOUT -->
@@ -796,7 +887,7 @@
           <li>
             <a href="https://x.com/osaro_stephanie/status/2092347811643773213" target="_blank" rel="noopener">
               <p class="art-meta"><time datetime="2026-08-25">25 August 2026</time><span class="tag">Best rated</span></p>
-              <h3>The Headies Nominations Are Out. Nigerians Have Resumed Their Side Hustle as Award Auditors.</h3>
+              <h3><span class="uline">The Headies Nominations Are Out. Nigerians Have Resumed Their Side Hustle as Award Auditors.</span></h3>
               <p class="art-excerpt">There are three things Nigerians take very seriously: football, politics, and explaining why their favourite artiste was robbed at an award show.</p>
               <span class="art-read">Read on X <span aria-hidden="true">↗</span></span>
             </a>
@@ -804,7 +895,7 @@
           <li>
             <a href="https://x.com/osaro_stephanie/status/2044111510352318960" target="_blank" rel="noopener">
               <p class="art-meta"><time datetime="2026-04-14">14 April 2026</time></p>
-              <h3>How I Wear My Mental Illness.</h3>
+              <h3><span class="uline">How I Wear My Mental Illness.</span></h3>
               <p class="art-excerpt">Mental illness is one of those things that travels across borders but somehow changes accent when it lands.</p>
               <span class="art-read">Read on X <span aria-hidden="true">↗</span></span>
             </a>
@@ -812,7 +903,7 @@
           <li>
             <a href="https://x.com/osaro_stephanie/status/2043149840712859663" target="_blank" rel="noopener">
               <p class="art-meta"><time datetime="2026-04-12">12 April 2026</time></p>
-              <h3>In Nigeria, rebellion comes with terms and conditions.</h3>
+              <h3><span class="uline">In Nigeria, rebellion comes with terms and conditions.</span></h3>
               <p class="art-excerpt">Teenage rebellion is a universal language. It doesn't matter where you're from, at some point between “Mummy, see my drawing” and “Please respect my privacy,” something shifts.</p>
               <span class="art-read">Read on X <span aria-hidden="true">↗</span></span>
             </a>
@@ -991,6 +1082,7 @@
       <span class="caps">Signature statement</span>
       <p class="big">Good programs change lives. Good stories move people. Great organizations know how to do both.</p>
       <p class="script">I help them make that happen.</p>
+      <svg class="flourish" viewBox="0 0 240 24" aria-hidden="true"><path d="M4 16 C 50 2, 90 24, 130 12 S 205 2, 236 12"/></svg>
     </div>
   </section>
 
@@ -1084,6 +1176,151 @@
 </dialog>
 
 <script>
+  // Editorial motion. Only ever adds visual wrappers; the wording on the page is untouched.
+  (function () {
+    var root = document.documentElement;
+    if (!root.classList.contains('anim')) return;
+    try {
+      var $ = function (q, c) { return Array.prototype.slice.call((c || document).querySelectorAll(q)); };
+      var clamp = function (n) { return Math.max(0, Math.min(1, n)); };
+
+      // Hero headline: words rise in, the italic line and script write themselves on
+      var h1 = document.querySelector('h1'), wi = 0;
+      Array.prototype.slice.call(h1.childNodes).forEach(function (n) {
+        if (n.nodeType !== 3) return;
+        var f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (t) {
+          if (!t) return;
+          if (/^\s+$/.test(t)) { f.appendChild(document.createTextNode(t)); return; }
+          var w = document.createElement('span');
+          w.className = 'w'; w.textContent = t; w.style.setProperty('--dl', (wi++ * 80 + 100) + 'ms');
+          f.appendChild(w);
+        });
+        h1.replaceChild(f, n);
+      });
+      var em = h1.querySelector('em'), heroScript = document.querySelector('.hero .script');
+      em.classList.add('wr'); em.style.setProperty('--dl', (wi * 80 + 200) + 'ms');
+      heroScript.classList.add('wr'); heroScript.style.setProperty('--dl', (wi * 80 + 1100) + 'ms');
+
+      // Quote: split into words for the scroll highlight
+      var quote = document.querySelector('.quote-big');
+      var qWords = quote.textContent.split(/(\s+)/);
+      quote.textContent = '';
+      qWords.forEach(function (t) {
+        if (/^\s*$/.test(t)) { quote.appendChild(document.createTextNode(t)); return; }
+        var w = document.createElement('span'); w.className = 'qw'; w.textContent = t; quote.appendChild(w);
+      });
+      var qSpans = $('.qw', quote);
+
+      // Signature statement: phrase by phrase
+      var big = document.querySelector('.statement .big');
+      var phrases = big.textContent.match(/[^.]+\.\s*/g) || [];
+      if (phrases.join('') === big.textContent) {
+        big.textContent = '';
+        phrases.forEach(function (t, i) {
+          var ph = document.createElement('span'); ph.className = 'ph'; ph.textContent = t; ph.style.setProperty('--i', i); big.appendChild(ph);
+        });
+      }
+      var sScript = document.querySelector('.statement .script');
+      sScript.classList.add('wr'); sScript.style.setProperty('--dl', '1700ms');
+
+      // Reveal targets, staggered among siblings
+      var observe = [];
+      $('.sec-head > *, .about .text > p, .about .arch, .disc, .facts > div, .edition, .ros-intro > *, .pillars > li, .letter, .cue, .articles > li, .xp-list > li, .xp-side, .start-card, .terms-title, .terms > li, .terms-foot, .contact .inner > *, .contact .arch, .enquiry, .crew img, .statement .caps, .hero .roles, .hero .lede, .hero .ctas, .hero .arch').forEach(function (el) {
+        el.classList.add('rv');
+        var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+        el.style.setProperty('--i', Math.min(idx, 5));
+        observe.push(el);
+      });
+      document.querySelector('.hero .lede').style.setProperty('--i', 16);
+      document.querySelector('.hero .ctas').style.setProperty('--i', 20);
+      document.querySelector('.hero .arch').style.setProperty('--i', 6);
+      $('.letter .script, .letter li').forEach(function (el, i) {
+        el.classList.add('wr'); el.style.setProperty('--dl', (300 + i * 450) + 'ms'); observe.push(el);
+      });
+      $('.gallery button').forEach(function (el, i) { el.style.setProperty('--i', i % 4); observe.push(el); });
+      $('.wr').forEach(function (el) {
+        var parent = el.parentNode;
+        if (!parent._wr) { parent._wr = []; observe.push(parent); }
+        parent._wr.push(el);
+      });
+      observe = observe.concat($('.flyers'), [big], $('.flourish'));
+
+      // On-air cue cards: type each line as the card arrives (desktop and tablets only)
+      var typing = window.innerWidth > 720;
+      function prepCue(cue) {
+        cue._chars = [];
+        $('.cue-line p', cue).forEach(function (p) {
+          var text = p.textContent, sr = document.createElement('span'), vis = document.createElement('span');
+          sr.className = 'sr'; sr.textContent = text;
+          vis.setAttribute('aria-hidden', 'true');
+          text.split('').forEach(function (c) {
+            var ch = document.createElement('span'); ch.textContent = c; ch.style.visibility = 'hidden';
+            vis.appendChild(ch); cue._chars.push(ch);
+          });
+          p.textContent = ''; p.appendChild(sr); p.appendChild(vis);
+        });
+      }
+      function typeCue(cue) {
+        var i = 0, chars = cue._chars;
+        var timer = setInterval(function () {
+          for (var k = 0; k < 2 && i < chars.length; k++) chars[i++].style.visibility = '';
+          if (i >= chars.length) clearInterval(timer);
+        }, 16);
+      }
+      if (typing) $('.cue').forEach(prepCue);
+
+      // Reveal anything that has reached the viewport (checked on load, scroll and resize)
+      var pending = observe.slice();
+      function reveal(el) {
+        el.classList.add('in');
+        (el._wr || []).forEach(function (w) { w.classList.add('in'); });
+        if (typing && el.classList.contains('cue')) setTimeout(function () { typeCue(el); }, 450);
+      }
+      function checkReveals(vh) {
+        pending = pending.filter(function (el) {
+          if (el.getBoundingClientRect().top < vh * 0.95) { reveal(el); return false; }
+          return true;
+        });
+      }
+      // Everything in the opening section plays on load, however short the screen is
+      $('.hero .rv, h1 .wr, .hero .script').forEach(function (el) { el.classList.add('in'); });
+
+      // Scroll-linked: progress bar, timelines, quote highlight, portrait parallax
+      var bar = document.createElement('div');
+      bar.className = 'progress'; bar.setAttribute('aria-hidden', 'true'); bar.appendChild(document.createElement('i'));
+      document.body.appendChild(bar);
+      var lines = $('.schedule, .xp-list').map(function (el) { return { el: el, items: Array.prototype.slice.call(el.children) }; });
+      var heroImg = document.querySelector('.hero .arch img'), ticking = false;
+      function update() {
+        ticking = false;
+        var vh = window.innerHeight, doc = document.documentElement;
+        checkReveals(vh);
+        var max = doc.scrollHeight - vh;
+        bar.style.setProperty('--s', max > 0 ? clamp(window.pageYOffset / max) : 0);
+        lines.forEach(function (l) {
+          var r = l.el.getBoundingClientRect(), mark = vh * 0.65 - r.top;
+          l.el.style.setProperty('--p', clamp(mark / r.height));
+          l.items.forEach(function (li) { li.classList.toggle('lit', li.getBoundingClientRect().top - r.top + 24 <= mark); });
+        });
+        var qr = quote.getBoundingClientRect();
+        var on = Math.ceil(clamp((vh * 0.85 - qr.top) / (vh * 0.4 + qr.height)) * qSpans.length);
+        qSpans.forEach(function (w, i) { w.classList.toggle('on', i < on); });
+        heroImg.style.setProperty('--py', Math.min(window.pageYOffset * 0.05, 24) + 'px');
+      }
+      function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      window.addEventListener('load', onScroll);
+      update();
+
+      window.__animReady = true;
+    } catch (err) {
+      console.error('Animation setup failed, showing the page without motion:', err);
+      root.classList.remove('anim');
+    }
+  })();
+
   // Enquiry form: validates, then opens the visitor's email app with the message filled in
   (function () {
     const form = document.getElementById('enquiry');
